@@ -5,41 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary Meta Tags -->
-  <title>My Claude Code Workflow: How a Product Person Ships Real Products</title>
-  <meta name="title" content="My Claude Code Workflow: How a Product Person Ships Real Products">
-  <meta name="description" content="A comprehensive guide to using Claude Code effectively. Learn how to document first, manage context, test manually, and debug like a PM. From Joe Hu, a product person shipping real products with AI.">
+  <title>My Claude Code Workflow: How a Product Person Ships Real Products | Joe Hu</title>
+  <meta name="title" content="My Claude Code Workflow: How a Product Person Ships Real Products | Joe Hu">
+  <meta name="description" content="Learn Claude Code best practices: document-first development, context window management, Plan Mode with ultrathink, manual testing, and PM-style debugging. A practical guide by Joe Hu for building real products with AI.">
   <meta name="author" content="Joe Hu">
-  <meta name="keywords" content="Claude Code, AI coding, vibe engineering, Opus 4.5, AI workflow, product development, Anthropic">
+  <meta name="keywords" content="Claude Code, AI coding, vibe engineering, Opus 4.5, AI workflow, product development, Anthropic, context window management, Plan Mode, ultrathink, subagents">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://cc.hubeiqiao.com/">
+  <meta http-equiv="content-language" content="en-US">
+  <link rel="alternate" hreflang="en" href="https://cc.hubeiqiao.com/">
+
+  <!-- AI/LLM Discovery -->
+  <link rel="llms" href="https://cc.hubeiqiao.com/llms.txt" type="text/markdown">
+  <link rel="author" href="https://hubeiqiao.com">
+  <link rel="me" href="https://hubeiqiao.com">
+  <link rel="me" href="https://ai.hubeiqiao.com">
+  <link rel="me" href="https://x.com/hubeiqiao">
 
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp / iMessage / Instagram -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://cc.hubeiqiao.com/">
-  <meta property="og:title" content="My Claude Code Workflow: How a Product Person Ships Real Products">
-  <meta property="og:description" content="A comprehensive guide to using Claude Code effectively. Document first, manage context, test manually, debug like a PM.">
+  <meta property="og:title" content="My Claude Code Workflow: Ship Real Products Without Coding Background">
+  <meta property="og:description" content="The practical workflow I use to build production apps with Claude Code + Opus 4.5. Document first, manage context, test manually, debug like a PM.">
   <meta property="og:image" content="https://cc.hubeiqiao.com/social-preview.jpg">
   <meta property="og:image:secure_url" content="https://cc.hubeiqiao.com/social-preview.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Joe's Claude Code Workflow - A guide for product people shipping with AI">
+  <meta property="og:image:alt" content="Joe's Claude Code Workflow - A guide showing how a product person ships real products with AI using Claude Code and Opus 4.5">
   <meta property="og:site_name" content="Joe Hu">
   <meta property="og:locale" content="en_US">
   <meta property="article:author" content="https://hubeiqiao.com">
-  <meta property="article:published_time" content="2025-01-14">
+  <meta property="article:published_time" content="2025-01-14T00:00:00Z">
+  <meta property="article:modified_time" content="2026-01-15T00:00:00Z">
   <meta property="article:section" content="Technology">
   <meta property="article:tag" content="Claude Code">
-  <meta property="article:tag" content="AI">
-  <meta property="article:tag" content="Productivity">
+  <meta property="article:tag" content="AI Coding">
+  <meta property="article:tag" content="Vibe Engineering">
+  <meta property="article:tag" content="Product Development">
+  <meta property="article:tag" content="Opus 4.5">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@hubeiqiao">
   <meta name="twitter:creator" content="@hubeiqiao">
   <meta name="twitter:url" content="https://cc.hubeiqiao.com/">
-  <meta name="twitter:title" content="My Claude Code Workflow: How a Product Person Ships Real Products">
-  <meta name="twitter:description" content="A comprehensive guide to using Claude Code effectively. Document first, manage context, test manually, debug like a PM.">
+  <meta name="twitter:title" content="My Claude Code Workflow: Ship Real Products Without Coding">
+  <meta name="twitter:description" content="How I build production apps with Claude Code + Opus 4.5. Document first, manage context, test manually, debug like a PM. The bottleneck is articulation, not AI.">
   <meta name="twitter:image" content="https://cc.hubeiqiao.com/social-preview.jpg">
-  <meta name="twitter:image:alt" content="Joe's Claude Code Workflow - A guide for product people shipping with AI">
+  <meta name="twitter:image:alt" content="Joe's Claude Code Workflow guide - practical tips for shipping with AI">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="15 min">
+  <meta name="twitter:label2" content="Written by">
+  <meta name="twitter:data2" content="Joe Hu">
 
   <!-- LinkedIn specific -->
   <meta property="linkedin:owner" content="hubeiqiao">
@@ -62,27 +80,197 @@
   </script>
 
   <!-- Structured Data / JSON-LD (SEO) -->
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Joe's Claude Code Workflow",
+    "url": "https://cc.hubeiqiao.com/",
+    "description": "A comprehensive guide to using Claude Code effectively for product development",
+    "author": {
+      "@type": "Person",
+      "name": "Joe Hu",
+      "url": "https://hubeiqiao.com"
+    }
+  }
+  </script>
+
+  <!-- Person Schema (Author E-E-A-T) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joe Hu",
+    "url": "https://hubeiqiao.com",
+    "image": "https://cc.hubeiqiao.com/Other%20resourecs/joe_speaking_icon.webp",
+    "jobTitle": "Product Person & Vibe Engineer",
+    "sameAs": [
+      "https://x.com/hubeiqiao",
+      "https://www.linkedin.com/in/hubeiqiao/",
+      "https://hubeiqiao.com",
+      "https://ai.hubeiqiao.com"
+    ],
+    "knowsAbout": ["Claude Code", "AI Coding", "Product Development", "Vibe Engineering", "Opus 4.5"]
+  }
+  </script>
+
+  <!-- Enhanced Article Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "My Claude Code Workflow: How a Product Person Ships Real Products",
+    "alternativeHeadline": "A Comprehensive Guide to Using Claude Code with Opus 4.5",
     "description": "A comprehensive guide to using Claude Code effectively. Learn how to document first, manage context, test manually, and debug like a PM.",
-    "image": "https://cc.hubeiqiao.com/social-preview.jpg",
+    "image": [
+      "https://cc.hubeiqiao.com/social-preview.jpg",
+      "https://cc.hubeiqiao.com/social-preview.png",
+      "https://cc.hubeiqiao.com/social-preview.webp"
+    ],
     "author": {
       "@type": "Person",
       "name": "Joe Hu",
-      "url": "https://hubeiqiao.com"
+      "url": "https://hubeiqiao.com",
+      "sameAs": ["https://x.com/hubeiqiao", "https://www.linkedin.com/in/hubeiqiao/", "https://ai.hubeiqiao.com"]
     },
     "publisher": {
       "@type": "Person",
-      "name": "Joe Hu"
+      "name": "Joe Hu",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cc.hubeiqiao.com/Other%20resourecs/joe_speaking_icon.webp"
+      }
     },
     "datePublished": "2025-01-14",
+    "dateModified": "2026-01-15",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://cc.hubeiqiao.com/"
-    }
+    },
+    "keywords": "Claude Code, AI coding, vibe engineering, Opus 4.5, AI workflow, product development, Anthropic, context window",
+    "articleSection": "Technology",
+    "wordCount": 4500,
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- HowTo Schema (Workflow Steps) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use Claude Code Effectively",
+    "description": "A step-by-step workflow for shipping real products using Claude Code with Opus 4.5",
+    "image": "https://cc.hubeiqiao.com/social-preview.jpg",
+    "totalTime": "PT4H",
+    "tool": [
+      {"@type": "HowToTool", "name": "Claude Code"},
+      {"@type": "HowToTool", "name": "Opus 4.5 Model"}
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Write What You Want First",
+        "text": "Don't worry about grammar. Just write your raw thoughts and requirements without AI assistance.",
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Use Plan Mode with ultrathink",
+        "text": "Send raw text to Claude Code in Plan Mode with 'ultrathink' keyword. CC will ask clarifying questions and generate a structured plan.",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Use ask-questions-if-underspecified Skill",
+        "text": "Always add 'If you have any questions, use ask-questions-if-underspecified to ask me questions' to ensure requirements are clear.",
+        "position": 3
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review Document and Iterate",
+        "text": "Read the plan document carefully, provide feedback, and iterate 3 rounds for big projects.",
+        "position": 4
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Execute with Context Management",
+        "text": "Clear context window, start with Plan Mode, monitor with /context command, compact when needed.",
+        "position": 5
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Manual Test and Deploy",
+        "text": "Manually test core workflows, run /preflight for code review and tests, follow GitHub CI workflow.",
+        "position": 6
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Debug Like a PM",
+        "text": "Provide evidence (logs, screenshots), document issues, use /investigate command, and ask AI to write reflections.",
+        "position": 7
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude Code is a general agent disguised as a developer tool. It can help with almost any computer task you can complete by running code or terminal commands. You can build almost anything in the digital world as long as you know how to articulate what you want."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the context window and why does it matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The context window is the memory of AI. Opus 4.5 has a 200K context window. Quality degrades non-linearly as context fills up - the last 20% of context significantly impacts output quality. Manage it by breaking tasks into smaller pieces, using subagents, and compacting manually."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Plan Mode and when should I use it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Plan Mode (activated with Shift + Tab) makes Claude Code automatically launch subagents to search for information, write a plan, and seek your feedback first before coding. Use it for big features, complex tasks, or when starting a new implementation. Add 'ultrathink' for complex tasks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I manage the context window effectively?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run /context to monitor usage. Use /compact or /smart-compact when context gets full. Break large tasks into phases with separate documents. Use subagents for investigation. Clear context and restart with Plan Mode between major phases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to know how to code to use Claude Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. You can be a product person without a strong technical background. The key is being able to articulate what you want and understanding software development processes. The bottleneck is not AI's capability - it's your ability to describe what you want."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What custom slash commands are most useful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Key commands include: /preflight (review code, add comments, write tests), /investigate (deep dive into bugs), /smart-compact (compact context with preservation rules), /ask-questions-if-underspecified (clarify requirements before implementing), and /context (monitor context window usage)."
+        }
+      }
+    ]
   }
   </script>
 
