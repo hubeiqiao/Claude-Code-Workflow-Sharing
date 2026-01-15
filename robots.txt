@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cc.hubeiqiao.com/sitemap.xml
