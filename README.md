@@ -1,5 +1,11 @@
 # My Claude Code Workflow: How a Product Person Ships Real Products
 
+**Live Site:** [cc.hubeiqiao.com](https://cc.hubeiqiao.com)
+
+**Original Blog Post:** [hubeiqiao.com/blog/2e80df12-ec77-803f-9814-c71bff16feee](https://hubeiqiao.com/blog/2e80df12-ec77-803f-9814-c71bff16feee)
+
+---
+
 I'm a product person, not an engineer. Yet I ship real, production-ready products using Claude Code + Opus 4.5. This site shares the workflow and principles I've developed.
 
 **The bottleneck is not AI's capability. It's your ability to articulate what you want.**
