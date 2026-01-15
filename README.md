@@ -1,6 +1,6 @@
 # My Claude Code Workflow: How a Product Person Ships Real Products
 
-**Live Site:** [cc.hubeiqiao.com](https://cc.hubeiqiao.com)
+**Live Site:** [ccworkflow.hubeiqiao.workers.dev](https://ccworkflow.hubeiqiao.workers.dev)
 
 **Original Blog Post:** [hubeiqiao.com/blog/2e80df12-ec77-803f-9814-c71bff16feee](https://hubeiqiao.com/blog/2e80df12-ec77-803f-9814-c71bff16feee)
 
