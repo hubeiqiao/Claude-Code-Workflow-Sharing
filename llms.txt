@@ -1,0 +1,42 @@
+# Joe's Claude Code Workflow
+
+> A comprehensive guide to using Claude Code effectively, created by Joe Hu, a product person shipping real products with AI. Learn document-first development, context window management, Plan Mode with ultrathink, manual testing practices, and PM-style debugging techniques.
+
+This guide shares practical workflows and custom slash commands for using Claude Code with Opus 4.5 to build production applications without a traditional coding background.
+
+## Key Concepts
+
+- [Context Window Management](https://cc.hubeiqiao.com/#context-window): Understanding the 200K token limit and the "Lost in the Middle" quality degradation curve
+- [Document-First Development](https://cc.hubeiqiao.com/#draft-plan): Write requirements before coding, use Plan Mode to break down tasks
+- [Custom Slash Commands](https://cc.hubeiqiao.com/#appendix): /preflight, /investigate, /smart-compact, /ask-questions-if-underspecified
+
+## Workflow Phases
+
+- [Draft Plan Phase](https://cc.hubeiqiao.com/#draft-plan): Raw text first, then Plan Mode with ultrathink for breakdown
+- [Execution Phase](https://cc.hubeiqiao.com/#execution): Start with Plan Mode, monitor context with /context, use subagents
+- [Test & Deploy Phase](https://cc.hubeiqiao.com/#test-and-deploy): Manual testing, /preflight command, GitHub CI workflow
+- [Debug Phase](https://cc.hubeiqiao.com/#debug): PM-style evidence gathering, /investigate command, document issues
+
+## Key Principles
+
+1. **Detailed Documentation First** - Articulate what you want before coding
+2. **Context Window Management** - Quality degrades non-linearly, the last 20% is poison
+3. **Manual Testing is Key** - Validate results match your requirements
+4. **Stay Curious** - Ask questions, understand the logic even if you don't know the code
+
+## Author
+
+- [Joe Hu](https://hubeiqiao.com): Product person and vibe engineer building joespeaking.com
+- [Follow on X/Twitter](https://x.com/hubeiqiao): @hubeiqiao
+
+## Related Sites
+
+- [hubeiqiao.com](https://hubeiqiao.com) - Joe Hu's main personal site
+- [ai.hubeiqiao.com](https://ai.hubeiqiao.com) - AI-focused content hub
+- [joespeaking.com](https://joespeaking.com) - AI-powered speaking practice product
+
+## Resources
+
+- [Full Markdown Version](https://cc.hubeiqiao.com/llms-full.txt): Complete article content in plain text
+- [Official Claude Code Documentation](https://code.claude.com/docs): Anthropic's official docs
+- [Lost in the Middle Paper](https://arxiv.org/abs/2307.03172): Research on context quality degradation

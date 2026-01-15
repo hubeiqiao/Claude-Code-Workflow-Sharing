@@ -1,0 +1,328 @@
+# My Claude Code Workflow: How a Product Person Ships Real Products with Claude Code
+
+By Joe Hu | https://hubeiqiao.com | @hubeiqiao on X/Twitter
+Published: January 14, 2026 | Site: https://cc.hubeiqiao.com
+
+---
+
+## TL;DR
+
+Write what you want first without AI. Use Plan Mode with `ultrathink` to break it down. Keep context window under control by compacting and using subagents. Test manually. When debugging, act like a PM and provide evidence. The bottleneck is not AI's capability, it's your ability to articulate what you want.
+
+---
+
+## Introduction
+
+### What is Claude Code?
+
+Claude Code is a "general agent" disguised as a developer tool. It can help with almost any computer task you can complete by running code or terminal commands, as long as you know how to use it. You can build almost anything you want in the digital world.
+
+Claude Code is my favourite product of 2025 and I'm now subscribing to the Claude Max plan ($200 per month). These coding agents enabled me to do things I couldn't imagine a year ago.
+
+Last summer, Claude Code was not as powerful as it is now. But with Opus 4.5, I can feel the difference (while it still has multiple areas to improve), I feel I am able to do anything I want as long as I can articulate my thoughts with a longer plan. Now, I am building a real product with backend, cloud, payment, credit and promo code system rather than only frontend prototypes. Claude Code with Opus 4.5 is the most powerful tool I've ever accessed.
+
+This is the golden era to build for yourself.
+
+### My Background
+
+I am a product person without a strong technical background. Fortunately, I'm already familiar with the software development process, which means I am better positioned than most people for vibe coding.
+
+Incredibly, I am building my first real commercialized product (joespeaking.com) by using Claude Code with Opus 4.5 and plan to start alpha testing by the end of this month.
+
+I am a living example of how AI empowers skills.
+
+### Why Do We Have This Session/Page
+
+This month, I am at Ottawa's first AGI Ventures Canada Hacker House alongside some high-agency people. I'm also excited (and grateful) to have been accepted into the first cohort.
+
+At the house, we not only build together but also will have several workshops and sharing sessions. Since I absolutely love Claude Code, I came up with an idea to just share my workflow and trigger discussion to learn from each other. For Claude Code, everyone has different usage and workflows. The core of this session is to explore a better workflow for you and me.
+
+This is just how I use Claude Code currently (Tuesday, January 14, 2026). It updates rapidly.
+
+---
+
+## What I Do with Claude Code
+
+- Build: My product (joespeaking.com)
+- Display: Website/Slide deck (This material is an example, I focus on the content first and then let Claude Cowork polish the content and Claude Code build the website for me)
+- Write: Assignment, Report (Claude Code is able to complete most of your assignments even over 100+ pages project report in a few hours as long as you provided enough context information)
+
+As long as a task can be done on your computer, Claude Code is likely to complete it.
+
+---
+
+## Key Principles
+
+I believe these are things that remain unchanged in the short term.
+
+### 1. Your Demands: Detailed Documentation First
+
+Articulate what you want. Most issues arise because you don't know what you want or haven't clarified your requirements. Since I don't know the code, this is the core part to validate if AI understands my demands by reading documents. I also think it's a crucial step for all of these AI tools.
+
+### 2. Context Window Management
+
+What is the context window? In short, it's the memory of AI. Opus 4.5 has a 200K context window. It's not enough for bigger tasks. Additionally, the performance will go down as the context window fills up.
+
+The Context Quality Curve:
+
+Quality of Output
+     |
+100% |--------,
+     |        |\
+ 80% |        | \
+     |        |  \ <- "Lost in the Middle" begins
+ 60% |        |   \
+     |        |    \____
+ 40% |        |         \___
+     |        |              \___
+ 20% |        |                   \
+     +--------+--------------------> Context Usage %
+            20%   40%   60%   80%  100%
+
+Key insight: Quality degrades non-linearly. The last 20% of context is poison.
+
+Source: "Lost in the Middle: How Language Models Use Long Contexts" (https://arxiv.org/abs/2307.03172)
+
+To manage the issue of context window, we need to:
+- Break the tasks down into smaller pieces
+- Implement tasks one at a time
+- Document the status
+- Use Subagent and compact manually
+
+### 3. Manual Testing is the Key
+
+Manual testing is the key to delivering the better result with your taste. However, it takes time...
+
+### 4. Mindset: Stay Curious and Keep Your Passion
+
+Ask any questions. If AI's response has any unreasonable areas, ask it to clarify. You can say you don't know how to code, but you can't say you don't know the logic. Even if you don't know some technical terms, you can always ask AI to explain them to you. Your curiosity and consistent passion are the key to continuously work with these extraordinary products.
+
+---
+
+## My Workflow
+
+### Before Running Claude Code
+
+Use the native build (install it with homebrew)! Much nicer syntax highlighting. You can also run Claude Code on Claude Desktop directly now if something doesn't work on your terminal.
+
+### Decision Tree
+
+Coding project:
+- Big or main feature -> Claude Code local
+- Other unrelated features -> Claude Code web (run multiple in parallel even on your smartphone!)
+
+Visualization:
+- Document -> Claude Code with Opus 4.5 in Plan mode with Frontend design Skills
+
+Additionally, I always have a markdown editor alongside to draft my thoughts and prompts.
+
+---
+
+## Draft Plan
+
+This is the most important phase. Spend time here to save time later.
+
+### 1. No AI. Just Write What I Want First
+
+Don't worry about the grammar. Just write. Even for this sharing session, I wrote my raw thoughts first.
+
+### 2. Send the Raw Text to Claude Code (CC)
+
+Refer to other context (for example, mention the specific document like `docs/PHASE_9_NEXT_STEPS.md`) to Claude Code, start with Plan mode and add `ultrathink`. Generally, CC will ask you some questions to clarify. You answer and will get version 1 of the document.
+
+### 3. Use the "ask-questions-if-underspecified" Skill
+
+Always add: "If you have any questions, use 'ask-questions-if-underspecified' to ask me questions." If I don't know the answers to some questions, I usually type "follow the best practice".
+
+### 4. Read the Document Carefully
+
+If you have any questions, send the feedback to CC. Back and forth.
+
+### 5. For Big Projects, Clear Context and Review Again
+
+If this is a big project or a crucial feature, I will clear the context window and send the draft document to CC again to allow it to review it and I also send the feedback back-and-forth. I usually have 3 rounds. I will also let CC break it down into different phases. I will have another specific document for each phase. For each phase, break it down into small tasks that can be verified at each step. This usually takes several hours per phase document. This is absolutely worthwhile. It's better than dealing with future revisions later.
+
+### 6. Allow CC to Check the Status Before Coding
+
+You can allow CC to check the status before coding and documenting. This will allow CC to check and verify the code itself (the actual status) to enhance the documentation.
+
+### 7. Allow AI to Draft the Plan Visually
+
+Allow AI to draft the plan visually with diagrams and even UI prototype with elements. This shows you more directly what you want and allows you to change it before coding.
+
+### 8. For Bug/Issue, Investigate First. Don't Code.
+
+If it is a bug/issue, let CC write an issue and investigate/reproduce it first. Don't code.
+
+### Tips for Planning
+
+- Shift + Tab switches to Plan Mode. The benefit of the Plan mode is that it will automatically launch subagent to search for the information (save the context window) and write a plan and seek your feedback first.
+- Add `ultrathink` if it's a huge and complex task
+
+---
+
+## Execution
+
+I'd suggest learning some basic git, CLI, and version control knowledge to help you feel more confident. Return to the fundamentals.
+
+### 1. Start with Plan Mode Again
+
+Once I have a plan, I will clear the context window and start with plan mode again to implement it. In my main product, I always open a new branch to add new features and debug.
+
+### 2. If Something Broken, Escape Escape (Rewind)
+
+If something is broken, press Escape twice (Rewind) to pick the restore point.
+
+### 3. Run /context to Monitor Context Window
+
+Run `/context` or install some plugins to understand the current context window consumption.
+
+### 4. Compact Context Window
+
+While people recommend compacting the context window manually, for my convenience, I still use auto-compact. But I will manually compact it when I see this information. I will run `/smart-compact` first to show me the preserved information and then run `/compact` to compact it.
+
+### 5. Update Documents After Execution
+
+After the execution, allow CC to update documents to keep the documentation consistent.
+
+### 6. Visualize the Logic
+
+To help you understand the code better, tell CC to write a document to list and visualize the logic. You may not know the code but you should know the logic and control it.
+
+### About CLAUDE.md
+
+CLAUDE.md is the document that allows CC to read each time. I didn't write CLAUDE.md from scratch. I copied from others and talked with AI to keep it simple.
+
+---
+
+## Test and Deploy
+
+### 1. Manual Test
+
+Manually test to make sure it matches my requirements. Of course you might not cover all the edge cases but at least you can check that the core workflow works.
+
+### 2. Run /pre-flight
+
+Use `/pre-flight` to review the code, add comments, write unit tests, update the document.
+
+### 3. Learn GitHub PR, Issue, CI Workflow
+
+Learn how GitHub PR, issue, CI workflow work. I think these automatic workflows help people like me to maintain the quality. But the issue is that you need to think about updating these tests each time you adjust/add new features.
+
+### 4. Code Review
+
+Create a PR and Claude Code/Codex will review the code and send the feedback to Claude Code back and forth. But you need to ask AI to evaluate this code review feedback before implementing it.
+
+### 5. For UI Features, Use Browser Tools
+
+For UI features, you can use Claude Code Web MCP to allow Claude to validate it. Vercel Agent Browser was also released this week (save a lot of context window).
+
+### 6. Deployment Pipeline
+
+For my current real product, I have: localhost -> Vercel preview -> staging -> main
+
+For general products: localhost -> Vercel preview -> main
+
+---
+
+## Debug
+
+### 1. Be a PM to Help AI Solve Issues
+
+Just like my previous work, be a PM to help R&D solve issues, provide some suggestions as an outsider. It's your responsibility to provide AI with more evidence (log, behaviour), for example, ask AI to add logs and help AI to find the issue. It is your responsibility to provide more context and evidence to help AI. Report a bug professionally.
+
+### 2. Document Issues Each Round
+
+If AI is always breaking one feature, tell AI to document issues each round and write reflections. Additionally, after fixing a regression, ask CC to add tests to prevent it from happening again.
+
+### 3. Compare with a Workable Commit
+
+Once you have a workable node, in the future, if a feature is broken, you can ask AI to check that commit to learn from the pattern.
+
+### 4. Search Online for API Issues
+
+If AI continues to be stuck on the same issue and says it's an API issue, you might search online and find a similar situation.
+
+### 5. Use Other Tools
+
+Use other tools like Codex or Cursor debug. Feed the feedback to each other.
+
+### 6. Sentry and PostHog for Production
+
+Use Sentry and PostHog for production analysis. Ask AI to monitor the log if it is on the production and have a smooth workflow to have enough evidence to fix the bug if users report.
+
+### 7. Use /investigate
+
+Use `/investigate` to investigate an issue. Also, break the task down, or just investigate one issue each time.
+
+### 8. Ctrl + V for Screenshots
+
+Use Ctrl + V to add screenshots for visual bugs.
+
+---
+
+## Tips Summary
+
+- Using Plan Mode and ultrathink
+- Using Claude Code Web simultaneously
+- Realizing the context management (or even engineering)
+- Slash commands: `/context`, `/compact`, `/clear`
+- Custom slash commands: `/investigate`, `/pre-flight`, `/smart-compact`
+- Use Twitter/X to get the latest info
+
+---
+
+## One More Thing
+
+99% of people don't realize Claude Code's potential. This is the opportunity for all of us.
+
+What does the world look like next year? Or how could my process be improved? On-demand software generation is truly approaching (while it's still a monthly timeline to build a whole application by myself now). My feeling is that the true bottleneck is myself...
+
+---
+
+## Custom Slash Commands
+
+### /preflight
+
+Review code, add comments, write tests, and run quality checks. Rules: NO regressions (run `npm test` after every change), NO logic changes (only add comments). Process: Baseline test, review code, add comments, write tests, run quality checks, update test docs, report results.
+
+### /ask-questions-if-underspecified
+
+Clarify requirements before implementing. Ask the minimum set of clarifying questions needed to avoid wrong work. Do not start implementing until must-have questions are answered.
+
+### /smart-compact
+
+Compact context with explicit preservation rules. Must preserve: current task/goal, file paths from last 10 messages, explicit decisions/constraints, error messages and solutions, current plan/checklist. Can summarize: dead-end exploration, verbose command output, unmodified file contents, discussion leading to decisions.
+
+### /investigate
+
+Deep dive into a bug or behavior. Phase 1: Understand (expected vs actual behavior). Phase 2: Locate (search and trace code). Phase 3: Analyze (git history). Phase 4: Report (root cause, affected files, recommended fix, risk assessment, test plan). Do NOT make changes - investigation only.
+
+---
+
+## References
+
+Official Documentation:
+- Claude Code Overview: https://code.claude.com/docs/en/overview
+- Claude Code Documentation: https://code.claude.com/docs
+
+Research:
+- Lost in the Middle: How Language Models Use Long Contexts: https://arxiv.org/abs/2307.03172
+
+Community Resources:
+- Claude Code Mastery: Advanced Patterns: https://pastebin.com/Hy59QYnC
+- Vibe Engineering - Simon Willison: https://simonwillison.net/2025/Oct/7/vibe-engineering/
+- Vercel Agent Browser: https://github.com/vercel-labs/agent-browser
+
+---
+
+## Related Sites
+
+- hubeiqiao.com - Joe Hu's main personal site
+- ai.hubeiqiao.com - AI-focused content hub
+- joespeaking.com - AI-powered speaking practice product
+
+---
+
+Last updated: January 14, 2026
+This document was drafted by Joe Hu and polished with Claude Cowork.
