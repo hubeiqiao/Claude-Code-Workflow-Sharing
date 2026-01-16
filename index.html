@@ -328,6 +328,11 @@
       --text-primary: #F4F3EE;
       --text-secondary: #9896A3;
       --text-dim: #5E5C6B;
+      /* Glow effect variables */
+      --accent-glow-30: rgba(230, 125, 34, 0.3);
+      --accent-glow-50: rgba(230, 125, 34, 0.5);
+      --teal-glow-30: rgba(0, 212, 170, 0.3);
+      --surface-overlay: rgba(10, 10, 15, 0.97);
       /* Syntax highlighting colors (Dracula-inspired) */
       --syntax-comment: #6272a4;
       --syntax-keyword: #ff79c6;
@@ -1222,6 +1227,44 @@
       outline-offset: 2px;
     }
 
+    /* ===== FOCUS-VISIBLE STATES FOR ACCESSIBILITY ===== */
+    /* Global focus-visible for all interactive elements */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+    }
+
+    /* Skip outline on elements with custom focus states */
+    .card:focus-visible,
+    .flip-card:focus-visible,
+    .skip-link:focus {
+      outline: none;
+    }
+
+    /* ===== ACTIVE STATES FOR TOUCH/CLICK FEEDBACK ===== */
+    button:active,
+    a:active {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    /* Preserve existing transforms on cards */
+    .card:active {
+      transform: translateY(-2px) scale(0.99);
+    }
+
+    /* ===== TRANSFORM UTILITY CLASSES ===== */
+    .rotate-1 { transform: rotate(1deg); }
+    .-rotate-1 { transform: rotate(-1deg); }
+    .scale-115 { transform: scale(1.15); }
+
+    /* ===== TEXT OVERFLOW HANDLING ===== */
+    code, pre {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
     /* Respect reduced motion preferences */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1246,7 +1289,7 @@
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full border-2 border-accent/50 overflow-hidden flex-shrink-0"><img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover" style="transform: scale(1.15);"></div>
+        <div class="w-9 h-9 rounded-full border-2 border-accent/50 overflow-hidden flex-shrink-0"><img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover scale-115"></div>
         <span class="font-display font-semibold text-cream hidden sm:block">Joe's Claude Code Workflow</span>
       </a>
 
@@ -1335,7 +1378,7 @@
 
       <!-- Author Card -->
       <div class="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 animate-on-scroll stagger-3 hover:border-accent/30 transition-colors">
-        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-accent/80 shadow-lg shadow-accent/20 overflow-hidden flex-shrink-0"><img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover" style="transform: scale(1.15);"></div>
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-accent/80 shadow-lg shadow-accent/20 overflow-hidden flex-shrink-0"><img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover scale-115"></div>
         <div class="text-left">
           <p class="font-semibold text-sm sm:text-base">Joe Hu</p>
           <p class="text-xs sm:text-sm text-muted">Product Person & Vibe Engineer</p>
@@ -1998,15 +2041,13 @@
               <img
                 src="My Claude Code Workflow How a Product Person Ships/06-plan-document-phases.png"
                 alt="Plan Document Phases"
-                class="screenshot w-full max-w-md mb-4"
-                style="transform: rotate(1deg);"
+                class="screenshot w-full max-w-md mb-4 rotate-1"
                 loading="lazy"
               >
               <img
                 src="My Claude Code Workflow How a Product Person Ships/07-plan-verification-steps.png"
                 alt="Plan Verification Steps"
-                class="screenshot w-full max-w-md"
-                style="transform: rotate(-1deg);"
+                class="screenshot w-full max-w-md -rotate-1"
                 loading="lazy"
               >
             </div>
@@ -2063,8 +2104,7 @@
               <img
                 src="My Claude Code Workflow How a Product Person Ships/09-document-version-history.png"
                 alt="Document Version History"
-                class="screenshot w-full max-w-md"
-                style="transform: rotate(1deg);"
+                class="screenshot w-full max-w-md rotate-1"
                 loading="lazy"
               >
             </div>
@@ -2110,8 +2150,7 @@
               <img
                 src="My Claude Code Workflow How a Product Person Ships/11-visual-ui-mockup.png"
                 alt="Visual UI Mockup"
-                class="screenshot w-full max-w-md"
-                style="transform: rotate(-1deg);"
+                class="screenshot w-full max-w-md -rotate-1"
                 loading="lazy"
               >
             </div>
@@ -2239,8 +2278,7 @@
               <img
                 src="My Claude Code Workflow How a Product Person Ships/15-auto-compact-notification.png"
                 alt="Auto Compact Notification"
-                class="screenshot w-full"
-                style="transform: rotate(1deg);"
+                class="screenshot w-full rotate-1"
                 loading="lazy"
               >
             </div>
@@ -2281,8 +2319,7 @@
               <img
                 src="My Claude Code Workflow How a Product Person Ships/17-state-machine-diagram.png"
                 alt="State Machine Diagram"
-                class="screenshot w-full"
-                style="transform: rotate(-1deg);"
+                class="screenshot w-full -rotate-1"
                 loading="lazy"
               >
             </div>
@@ -2332,13 +2369,13 @@
           </div>
 
           <!-- 02 Code Review -->
-          <div class="card p-6 animate-on-scroll stagger-2 group hover:border-yellow-500/40 transition-all relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500/60 to-yellow-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-2 group hover:border-accent-warm/40 transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-warm/60 to-accent-warm/20"></div>
             <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">👀</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-warm/20 to-accent-warm/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">👀</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-yellow-400 font-mono text-xs font-bold">02</span>
+                  <span class="text-accent-warm font-mono text-xs font-bold">02</span>
                   <h4 class="font-display font-bold text-cream">Code Review</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
@@ -2369,13 +2406,13 @@
 
           <!-- Row 2: Three cards with images -->
           <!-- 03 GitHub CI -->
-          <div class="card p-6 animate-on-scroll stagger-4 group hover:border-purple-500/40 transition-all relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/60 to-purple-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-4 group hover:border-teal/40 transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex items-start gap-4 mb-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔄</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔄</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-purple-400 font-mono text-xs font-bold">04</span>
+                  <span class="text-teal font-mono text-xs font-bold">04</span>
                   <h4 class="font-display font-bold text-cream">GitHub PR, Issue, CI</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
@@ -2405,13 +2442,13 @@
           </div>
 
           <!-- 06 Deployment -->
-          <div class="card p-6 animate-on-scroll stagger-6 group hover:border-green-500/40 transition-all relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500/60 to-green-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-6 group hover:border-teal/40 transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex items-start gap-4 mb-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📦</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📦</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-green-400 font-mono text-xs font-bold">06</span>
+                  <span class="text-teal font-mono text-xs font-bold">06</span>
                   <h4 class="font-display font-bold text-cream">Deploy</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">Sequential deployment flow below.</p>
@@ -2428,22 +2465,22 @@
           <!-- Pipeline Visualization -->
           <div class="flex items-center justify-center gap-2 flex-wrap mb-6">
             <div class="flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-green-500"></div>
+              <div class="w-4 h-4 rounded-full bg-teal"></div>
               <span class="text-sm mt-2">localhost</span>
             </div>
-            <div class="w-16 h-0.5 bg-gradient-to-r from-green-500 to-yellow-500"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-teal to-accent-warm"></div>
             <div class="flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-yellow-500"></div>
+              <div class="w-4 h-4 rounded-full bg-accent-warm"></div>
               <span class="text-sm mt-2">Vercel Preview</span>
             </div>
-            <div class="w-16 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-accent-warm to-accent"></div>
             <div class="flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-orange-500"></div>
+              <div class="w-4 h-4 rounded-full bg-accent"></div>
               <span class="text-sm mt-2">staging</span>
             </div>
-            <div class="w-16 h-0.5 bg-gradient-to-r from-orange-500 to-green-500"></div>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-accent to-teal"></div>
             <div class="flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-green-500 animate-pulse"></div>
+              <div class="w-4 h-4 rounded-full bg-teal animate-pulse"></div>
               <span class="text-sm mt-2 font-bold">main</span>
             </div>
           </div>
@@ -2548,13 +2585,13 @@
 
           <!-- Row 3: Two text-only cards -->
           <!-- 05 Use Other Tools -->
-          <div class="card p-6 animate-on-scroll stagger-5 group hover:border-purple-500/40 transition-all relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/60 to-purple-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-5 group hover:border-teal/40 transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔧</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔧</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-purple-400 font-mono text-xs font-bold">05</span>
+                  <span class="text-teal font-mono text-xs font-bold">05</span>
                   <h4 class="font-display font-bold text-cream">Use Other Tools</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
@@ -2565,13 +2602,13 @@
           </div>
 
           <!-- 06 Sentry & PostHog -->
-          <div class="card p-6 animate-on-scroll stagger-6 group hover:border-purple-500/40 transition-all relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500/60 to-purple-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-6 group hover:border-teal/40 transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📊</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📊</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-purple-400 font-mono text-xs font-bold">06</span>
+                  <span class="text-teal font-mono text-xs font-bold">06</span>
                   <h4 class="font-display font-bold text-cream">Sentry & PostHog</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
@@ -2582,13 +2619,13 @@
           </div>
 
           <!-- 07 Ctrl+V Screenshots - Full width -->
-          <div class="card p-6 animate-on-scroll stagger-7 group hover:border-green-500/40 transition-all relative overflow-hidden md:col-span-2">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500/60 to-green-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-7 group hover:border-teal/40 transition-all relative overflow-hidden md:col-span-2">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex items-center gap-6">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📸</div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">📸</div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-green-400 font-mono text-xs font-bold">07</span>
+                  <span class="text-teal font-mono text-xs font-bold">07</span>
                   <h4 class="font-display font-bold text-cream">Ctrl+V Screenshots</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
@@ -2604,14 +2641,14 @@
           </div>
 
           <!-- 08 Use /investigate - Full width horizontal layout -->
-          <div class="card p-6 animate-on-scroll stagger-8 group hover:border-green-500/40 transition-all relative overflow-hidden md:col-span-2">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500/60 to-green-500/20"></div>
+          <div class="card p-6 animate-on-scroll stagger-8 group hover:border-teal/40 transition-all relative overflow-hidden md:col-span-2">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/60 to-teal/20"></div>
             <div class="flex flex-col md:flex-row md:items-center gap-6">
               <div class="flex items-start gap-4 md:w-1/3">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔬</div>
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal/20 to-teal/5 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform">🔬</div>
                 <div class="flex-1">
                   <div class="flex items-center gap-2 mb-1">
-                    <span class="text-green-400 font-mono text-xs font-bold">08</span>
+                    <span class="text-teal font-mono text-xs font-bold">08</span>
                     <h4 class="font-display font-bold text-cream">Use /investigate</h4>
                   </div>
                   <p class="text-muted text-sm leading-relaxed">
@@ -3030,7 +3067,7 @@ Now perform /compact with these rules in mind.</code></pre>
 
       <!-- Section: Debugging -->
       <div class="flex items-center gap-3 mb-6 mt-12 animate-on-scroll">
-        <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center">
           <span class="text-xl">🔍</span>
         </div>
         <div>
@@ -3204,7 +3241,7 @@ Do NOT make any changes. Investigation only.</code></pre>
       <!-- Author Info -->
       <div class="text-center mb-12 animate-on-scroll">
         <div class="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-accent glow-orange overflow-hidden">
-          <img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover" style="transform: scale(1.15);">
+          <img src="Other resourecs/headshot-optimized.jpg" alt="Joe Hu" class="w-full h-full object-cover scale-115">
         </div>
         <h3 class="font-display text-2xl font-bold mb-2">Joe Hu</h3>
         <p class="text-muted mb-6">Product person shipping real products with AI</p>
@@ -3288,23 +3325,29 @@ Do NOT make any changes. Investigation only.</code></pre>
       const scrollTop = document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-      // Header shadow
-      if (scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
+      // Header shadow (with null check)
+      if (header) {
+        if (scrollY > 50) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
       }
 
-      // Back to top button
-      if (scrollY > 500) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
+      // Back to top button (with null check)
+      if (backToTop) {
+        if (scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
       }
 
-      // Progress bar
-      const progress = (scrollTop / scrollHeight) * 100;
-      progressBar.style.width = `${progress}%`;
+      // Progress bar (with null check)
+      if (progressBar) {
+        const progress = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
 
       ticking = false;
     }
@@ -3323,16 +3366,26 @@ Do NOT make any changes. Investigation only.</code></pre>
     // Copy Code Function
     function copyCode(button) {
       const terminal = button.closest('.terminal');
-      const code = terminal.querySelector('code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        const originalText = button.innerText;
-        button.innerText = 'Copied!';
-        button.classList.add('copied');
-        setTimeout(() => {
-          button.innerText = originalText;
-          button.classList.remove('copied');
-        }, 2000);
-      });
+      if (!terminal) return;
+      const codeEl = terminal.querySelector('code');
+      if (!codeEl) return;
+      const code = codeEl.innerText;
+      const originalText = button.innerHTML;
+
+      navigator.clipboard.writeText(code)
+        .then(() => {
+          button.innerHTML = '<span class="text-teal">Copied!</span>';
+          button.classList.add('copied');
+        })
+        .catch(() => {
+          button.innerHTML = '<span class="text-red-400">Failed</span>';
+        })
+        .finally(() => {
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copied');
+          }, 2000);
+        });
     }
 
     // Intersection Observer for Scroll Animations
