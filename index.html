@@ -328,6 +328,12 @@
       --text-primary: #F4F3EE;
       --text-secondary: #9896A3;
       --text-dim: #5E5C6B;
+      /* Syntax highlighting colors (Dracula-inspired) */
+      --syntax-comment: #6272a4;
+      --syntax-keyword: #ff79c6;
+      --syntax-string: #8be9fd;
+      --syntax-function: #50fa7b;
+      --syntax-number: #bd93f9;
     }
 
     /* Base Styles */
@@ -711,11 +717,11 @@
       line-height: 1.7;
     }
     /* Syntax highlighting colors */
-    .terminal code .comment { color: #6272a4; }
-    .terminal code .keyword { color: #ff79c6; }
-    .terminal code .string { color: #8be9fd; }
-    .terminal code .function { color: #50fa7b; }
-    .terminal code .number { color: #bd93f9; }
+    .terminal code .comment { color: var(--syntax-comment); }
+    .terminal code .keyword { color: var(--syntax-keyword); }
+    .terminal code .string { color: var(--syntax-string); }
+    .terminal code .function { color: var(--syntax-function); }
+    .terminal code .number { color: var(--syntax-number); }
 
     /* Flip Card */
     .flip-card {
@@ -1002,11 +1008,23 @@
         transform: none;
       }
 
-      /* Better touch targets for links */
-      a {
+      /* Better touch targets for navigation/button links */
+      nav a,
+      .mobile-menu-dropdown a,
+      a[class*="bg-"],
+      a[class*="rounded-full"],
+      a[class*="px-"] {
         min-height: 44px;
         display: inline-flex;
         align-items: center;
+      }
+
+      /* Inline text links - preserve normal line height */
+      .text-link,
+      p a:not([class*="bg-"]):not([class*="px-"]),
+      span a:not([class*="bg-"]):not([class*="px-"]) {
+        min-height: auto;
+        display: inline;
       }
 
       /* Code blocks mobile styling */
@@ -1170,9 +1188,55 @@
     body.lightbox-open {
       overflow: hidden;
     }
+
+    /* Screen reader only utility class */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Skip link - visible on focus */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-primary);
+      color: var(--bg-dark);
+      padding: 12px 24px;
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      z-index: 100000;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 0;
+      outline: 2px solid var(--text-primary);
+      outline-offset: 2px;
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-dark text-cream font-body">
+
+  <!-- Skip Link for Keyboard Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Progress Bar -->
   <div class="progress-bar" style="width: 0%"></div>
@@ -1193,15 +1257,15 @@
         <a href="#workflow" class="text-muted hover:text-cream transition text-sm">Workflow</a>
         <a href="#tips" class="text-muted hover:text-cream transition text-sm">Tips</a>
         <a href="#appendix" class="text-muted hover:text-cream transition text-sm">Appendix</a>
-        <a href="https://x.com/hubeiqiao" target="_blank" class="flex items-center gap-2 bg-surface hover:bg-surface-hover px-4 py-2 rounded-full transition text-sm">
+        <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-surface hover:bg-surface-hover px-4 py-2 rounded-full transition text-sm">
           <span>Follow</span>
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button class="mobile-menu md:hidden p-2" onclick="toggleMobileMenu()">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button class="mobile-menu md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenuDropdown">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
@@ -1215,12 +1279,15 @@
         <a href="#workflow" class="text-muted hover:text-cream transition py-2" onclick="closeMobileMenu()">Workflow</a>
         <a href="#tips" class="text-muted hover:text-cream transition py-2" onclick="closeMobileMenu()">Tips</a>
         <a href="#appendix" class="text-muted hover:text-cream transition py-2" onclick="closeMobileMenu()">Appendix</a>
-        <a href="https://x.com/hubeiqiao" target="_blank" class="flex items-center gap-2 text-accent py-2">
+        <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-accent py-2">
           <span>Follow @hubeiqiao</span>
         </a>
       </div>
     </div>
   </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
 
   <!-- ==================== HERO SECTION ==================== -->
   <section id="hero" class="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
@@ -1230,7 +1297,7 @@
         <source srcset="My Claude Code Workflow How a Product Person Ships/01-vibe-engineering-hero.webp" type="image/webp">
         <img
           src="My Claude Code Workflow How a Product Person Ships/01-vibe-engineering-hero.png"
-          alt="Vibe Engineering Hero"
+          alt="Abstract visualization representing vibe engineering and AI-assisted development"
           class="w-full h-full object-cover opacity-40 scale-105"
           loading="eager"
           fetchpriority="high"
@@ -1263,7 +1330,7 @@
 
       <!-- Subtitle -->
       <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-muted max-w-xl mx-auto mb-8 md:mb-10 animate-on-scroll stagger-2">
-        With <a href="https://claude.com/product/claude-code" target="_blank" class="text-cream font-medium hover:text-accent transition-colors">Claude Code</a> + <a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" class="text-cream font-medium hover:text-accent transition-colors">Opus 4.5</a>
+        With <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer" class="text-cream font-medium hover:text-accent transition-colors">Claude Code</a> + <a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" rel="noopener noreferrer" class="text-cream font-medium hover:text-accent transition-colors">Opus 4.5</a>
       </p>
 
       <!-- Author Card -->
@@ -1274,7 +1341,7 @@
           <p class="text-xs sm:text-sm text-muted">Product Person & Vibe Engineer</p>
         </div>
         <div class="hidden sm:block w-px h-8 bg-white/10 mx-2"></div>
-        <a href="https://x.com/hubeiqiao" target="_blank" class="hidden sm:flex items-center gap-2 text-xs text-muted hover:text-accent transition-colors">
+        <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 text-xs text-muted hover:text-accent transition-colors">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           <span>@hubeiqiao</span>
         </a>
@@ -1342,7 +1409,7 @@
           <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center">
             <span class="text-xl">💻</span>
           </div>
-          <h3 class="font-display text-2xl font-bold">What is <a href="https://claude.com/product/claude-code" target="_blank" class="hover:text-accent transition-colors">Claude Code</a>?</h3>
+          <h3 class="font-display text-2xl font-bold">What is <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">Claude Code</a>?</h3>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8 items-start">
@@ -1376,7 +1443,7 @@
             <div class="space-y-3">
               <div class="p-4 rounded-xl bg-accent/5 border border-accent/20">
                 <p class="text-sm text-cream/80">
-                  <span class="text-accent font-semibold">💡 My Favorite Product of 2025</span> — Subscribed to <a href="https://claude.com/pricing" target="_blank" class="text-link">Claude Max</a> ($200/month). With <strong class="text-cream">Opus 4.5</strong>, building real products with backend, cloud, payment systems.
+                  <span class="text-accent font-semibold">💡 My Favorite Product of 2025</span> — Subscribed to <a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer" class="text-link">Claude Max</a> ($200/month). With <strong class="text-cream">Opus 4.5</strong>, building real products with backend, cloud, payment systems.
                 </p>
               </div>
               <div class="p-4 rounded-xl bg-teal/5 border border-teal/20">
@@ -1406,7 +1473,7 @@
                 <source srcset="My Claude Code Workflow How a Product Person Ships/CleanShot_2026-01-14_at_14.53.47.webp" type="image/webp">
                 <img
                   src="My Claude Code Workflow How a Product Person Ships/CleanShot_2026-01-14_at_14.53.47.png"
-                  alt="Joe's Background"
+                  alt="Joe Hu speaking at a conference about product development and AI"
                   class="screenshot w-full rounded-xl"
                   loading="lazy"
                   decoding="async"
@@ -1423,7 +1490,7 @@
               </div>
 
               <p class="text-lg leading-relaxed">
-                <a href="http://hubeiqiao.com" target="_blank" class="text-teal hover:text-teal/80 font-medium">I am a product person without a strong technical background.</a>
+                <a href="http://hubeiqiao.com" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-teal/80 font-medium">I am a product person without a strong technical background.</a>
               </p>
 
               <p class="text-cream/70">
@@ -1455,10 +1522,10 @@
             <div class="card p-6 border-l-4 border-teal">
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-lg">🏠</span>
-                <a href="https://www.agiventures.ca/" target="_blank" class="text-teal font-semibold hover:text-teal/80">AGI Ventures Canada</a>
+                <a href="https://www.agiventures.ca/" target="_blank" rel="noopener noreferrer" class="text-teal font-semibold hover:text-teal/80">AGI Ventures Canada</a>
               </div>
               <p class="text-cream/80">
-                This month, I'm at Ottawa's first <a href="https://www.agiventures.ca/" target="_blank" class="text-link">AGI Ventures</a> Hacker House alongside some high-agency people. I'm also excited (and grateful) to have been accepted into the first cohort.
+                This month, I'm at Ottawa's first <a href="https://www.agiventures.ca/" target="_blank" rel="noopener noreferrer" class="text-link">AGI Ventures</a> Hacker House alongside some high-agency people. I'm also excited (and grateful) to have been accepted into the first cohort.
               </p>
             </div>
 
@@ -1478,11 +1545,11 @@
                 <span class="text-cream font-medium">This is how I use Claude Code currently</span> (Tuesday, January 14, 2026). It updates rapidly.
               </p>
               <div class="flex flex-wrap gap-3 text-sm">
-                <a href="https://x.com/ClaudeCodeLog" target="_blank" class="text-link">@ClaudeCodeLog →</a>
-                <a href="https://claude.com/blog/cowork-research-preview" target="_blank" class="text-link">Introducing Cowork →</a>
+                <a href="https://x.com/ClaudeCodeLog" target="_blank" rel="noopener noreferrer" class="text-link">@ClaudeCodeLog →</a>
+                <a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener noreferrer" class="text-link">Introducing Cowork →</a>
               </div>
               <p class="text-xs text-dim">
-                Fun fact: Claude Cowork was <a href="https://x.com/bcherny/status/2010809450844831752" target="_blank" class="text-link">written 100% by Claude Code itself</a>
+                Fun fact: Claude Cowork was <a href="https://x.com/bcherny/status/2010809450844831752" target="_blank" rel="noopener noreferrer" class="text-link">written 100% by Claude Code itself</a>
               </p>
             </div>
           </div>
@@ -1535,15 +1602,15 @@
             </div>
           </div>
           <div class="space-y-3">
-            <a href="https://joespeaking.com/" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-surface/50 hover:bg-surface transition-colors">
-              <img src="Other resourecs/joe_speaking_icon.webp" alt="JoeSpeaking" class="w-12 h-12 rounded-xl shadow-md">
+            <a href="https://joespeaking.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-surface/50 hover:bg-surface transition-colors">
+              <img src="Other resourecs/joe_speaking_icon.webp" alt="JoeSpeaking.com logo - Public speaking coaching service" class="w-12 h-12 rounded-xl shadow-md">
               <div class="text-left">
                 <span class="text-cream font-semibold block">Joe Speaking</span>
                 <span class="text-xs text-teal">joespeaking.com →</span>
               </div>
             </a>
-            <a href="https://ielts.hubeiqiao.com/" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-surface/50 hover:bg-surface transition-colors">
-              <img src="Other resourecs/ielts-shortcut-96x96.png" alt="IELTS Speaking Simulator" class="w-12 h-12 rounded-xl shadow-md">
+            <a href="https://ielts.hubeiqiao.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl bg-surface/50 hover:bg-surface transition-colors">
+              <img src="Other resourecs/ielts-shortcut-96x96.png" alt="IELTS Shortcut app logo - AI-powered IELTS speaking practice" class="w-12 h-12 rounded-xl shadow-md">
               <div class="text-left">
                 <span class="text-cream font-semibold block">IELTS Speaking Simulator</span>
                 <span class="text-xs text-teal">ielts.hubeiqiao.com →</span>
@@ -1564,15 +1631,15 @@
             </div>
           </div>
           <div class="space-y-2">
-            <a href="https://hubeiqiao.com/2025/" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
+            <a href="https://hubeiqiao.com/2025/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
               <span class="text-cream">2025 Year Review</span>
               <span class="text-teal">→</span>
             </a>
-            <a href="https://oinp.hubeiqiao.com/" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
+            <a href="https://oinp.hubeiqiao.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
               <span class="text-cream">OINP Proposal</span>
               <span class="text-teal">→</span>
             </a>
-            <a href="https://eslr.hubeiqiao.com/" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
+            <a href="https://eslr.hubeiqiao.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-lg bg-surface/50 hover:bg-surface transition-colors text-sm">
               <span class="text-cream">ESL Research</span>
               <span class="text-teal">→</span>
             </a>
@@ -1768,7 +1835,7 @@
               <span class="text-danger font-semibold">⚠️ Key insight:</span> Quality degrades non-linearly. <strong>The last 20% of context is poison.</strong>
             </p>
             <p class="text-sm text-muted font-mono">
-              > source: <a href="https://arxiv.org/abs/2307.03172" target="_blank" class="text-link">arxiv:2307.03172</a> — "Lost in the Middle: How Language Models Use Long Contexts"
+              > source: <a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener noreferrer" class="text-link">arxiv:2307.03172</a> — "Lost in the Middle: How Language Models Use Long Contexts"
             </p>
           </div>
 
@@ -1812,10 +1879,10 @@
         </h3>
         <div class="card p-8 animate-on-scroll">
           <p class="text-lg mb-4">
-            <strong>Use the native build</strong> (install it with homebrew)! Much nicer syntax highlighting. This is the reply I received from Claude Code creator <a href="https://x.com/bcherny" target="_blank" class="text-link">Boris Cherny (@bcherny)</a>.
+            <strong>Use the native build</strong> (install it with homebrew)! Much nicer syntax highlighting. This is the reply I received from Claude Code creator <a href="https://x.com/bcherny" target="_blank" rel="noopener noreferrer" class="text-link">Boris Cherny (@bcherny)</a>.
           </p>
           <p class="text-muted">
-            You can also run Claude Code on Claude Desktop directly now if something doesn't work on your terminal. (P.S. Anthropic just released <a href="https://claude.com/blog/cowork-research-preview" target="_blank" class="text-link">Cowork</a> on January 12, 2026 for non-technical people to use Claude Code in a more user-friendly way. The raw text and polishing were handled by Claude Cowork.)
+            You can also run Claude Code on Claude Desktop directly now if something doesn't work on your terminal. (P.S. Anthropic just released <a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener noreferrer" class="text-link">Cowork</a> on January 12, 2026 for non-technical people to use Claude Code in a more user-friendly way. The raw text and polishing were handled by Claude Cowork.)
           </p>
         </div>
       </div>
@@ -2330,7 +2397,7 @@
                   <h4 class="font-display font-bold text-cream">Browser Tools</h4>
                 </div>
                 <p class="text-muted text-sm leading-relaxed">
-                  Use MCP or <a href="https://github.com/vercel-labs/agent-browser" target="_blank" class="text-link">Vercel Agent Browser</a> for UI validation.
+                  Use MCP or <a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer" class="text-link">Vercel Agent Browser</a> for UI validation.
                 </p>
               </div>
             </div>
@@ -2553,7 +2620,7 @@
                 </div>
               </div>
               <div class="md:w-2/3">
-                <img src="My Claude Code Workflow How a Product Person Ships/24-investigate-command-report.png" alt="Investigate" class="screenshot w-full rounded-lg max-h-56 object-cover object-top" loading="lazy" decoding="async">
+                <img src="My Claude Code Workflow How a Product Person Ships/24-investigate-command-report.png" alt="Claude Code investigate command output showing detailed bug analysis report" class="screenshot w-full rounded-lg max-h-56 object-cover object-top" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -2603,7 +2670,7 @@
         <div class="card p-8 text-center animate-on-scroll stagger-6 hover:glow-orange transition-all">
           <div class="text-4xl mb-4">𝕏</div>
           <h3 class="font-display font-bold mb-2">Stay Updated</h3>
-          <p class="text-muted text-sm">Follow <a href="https://x.com/hubeiqiao" target="_blank" class="text-link">@hubeiqiao</a> for tips</p>
+          <p class="text-muted text-sm">Follow <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="text-link">@hubeiqiao</a> for tips</p>
         </div>
       </div>
 
@@ -2685,7 +2752,7 @@
         <!-- CTA Card -->
         <div class="card p-8 text-center animate-on-scroll bg-gradient-to-br from-accent/5 to-teal/5 border border-accent/20">
           <p class="text-cream font-display font-semibold mb-5">Share your thoughts and feedback:</p>
-          <a href="https://x.com/hubeiqiao" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-accent to-accent-warm hover:from-accent-warm hover:to-accent px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:shadow-lg hover:shadow-accent/25">
+          <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-gradient-to-r from-accent to-accent-warm hover:from-accent-warm hover:to-accent px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:shadow-lg hover:shadow-accent/25">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             Discuss on X
           </a>
@@ -2811,7 +2878,7 @@
           <span class="terminal-dot bg-yellow-500"></span>
           <span class="terminal-dot bg-green-500"></span>
           <span class="ml-4 text-accent font-mono text-sm">/preflight</span>
-          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)">Copy</button>
+          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)" aria-label="Copy code to clipboard">Copy</button>
         </div>
         <div class="terminal-body">
           <pre class="text-gray-300 whitespace-pre-wrap"><code><span class="text-dim">---</span>
@@ -2868,7 +2935,7 @@ Review and test: $ARGUMENTS
           <span class="terminal-dot bg-yellow-500"></span>
           <span class="terminal-dot bg-green-500"></span>
           <span class="ml-4 text-accent font-mono text-sm">/ask-questions-if-underspecified</span>
-          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)">Copy</button>
+          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)" aria-label="Copy code to clipboard">Copy</button>
         </div>
         <div class="terminal-body">
           <pre class="text-gray-300 whitespace-pre-wrap"><code><span class="text-dim">---</span>
@@ -2927,7 +2994,7 @@ Once you have answers, restate the requirements in 1-3 sentences, then start wor
           <span class="terminal-dot bg-yellow-500"></span>
           <span class="terminal-dot bg-green-500"></span>
           <span class="ml-4 text-accent font-mono text-sm">/smart-compact</span>
-          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)">Copy</button>
+          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)" aria-label="Copy code to clipboard">Copy</button>
         </div>
         <div class="terminal-body">
           <pre class="text-gray-300 whitespace-pre-wrap"><code><span class="text-dim">---</span>
@@ -2979,7 +3046,7 @@ Now perform /compact with these rules in mind.</code></pre>
           <span class="terminal-dot bg-yellow-500"></span>
           <span class="terminal-dot bg-green-500"></span>
           <span class="ml-4 text-accent font-mono text-sm">/investigate</span>
-          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)">Copy</button>
+          <button class="ml-auto text-muted hover:text-cream text-sm" onclick="copyCode(this)" aria-label="Copy code to clipboard">Copy</button>
         </div>
         <div class="terminal-body">
           <pre class="text-gray-300 whitespace-pre-wrap"><code><span class="text-dim">---</span>
@@ -3037,12 +3104,12 @@ Do NOT make any changes. Investigation only.</code></pre>
           </div>
           <ul class="space-y-3">
             <li>
-              <a href="https://code.claude.com/docs/en/overview" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Claude Code Overview
               </a>
             </li>
             <li>
-              <a href="https://code.claude.com/docs" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://code.claude.com/docs" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Claude Code Documentation
               </a>
             </li>
@@ -3057,7 +3124,7 @@ Do NOT make any changes. Investigation only.</code></pre>
           </div>
           <ul class="space-y-3">
             <li>
-              <a href="https://arxiv.org/abs/2307.03172" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Lost in the Middle: How Language Models Use Long Contexts
               </a>
             </li>
@@ -3072,27 +3139,27 @@ Do NOT make any changes. Investigation only.</code></pre>
           </div>
           <ul class="space-y-3">
             <li>
-              <a href="https://pastebin.com/Hy59QYnC" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://pastebin.com/Hy59QYnC" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Claude Code Mastery: Advanced Patterns
               </a>
             </li>
             <li>
-              <a href="https://simonwillison.net/2025/Oct/7/vibe-engineering/" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://simonwillison.net/2025/Oct/7/vibe-engineering/" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Vibe Engineering - Simon Willison
               </a>
             </li>
             <li>
-              <a href="https://steipete.me/posts/just-talk-to-it" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://steipete.me/posts/just-talk-to-it" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Just Talk To It - Peter Steinberger
               </a>
             </li>
             <li>
-              <a href="https://github.com/vercel-labs/agent-browser" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Vercel Agent Browser
               </a>
             </li>
             <li>
-              <a href="https://github.com/vercel-labs/agent-skills" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://github.com/vercel-labs/agent-skills" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Vercel Agent Skills (react-best-practices)
               </a>
             </li>
@@ -3107,12 +3174,12 @@ Do NOT make any changes. Investigation only.</code></pre>
           </div>
           <ul class="space-y-3">
             <li>
-              <a href="https://x.com/bcherny/status/2007179832300581177" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://x.com/bcherny/status/2007179832300581177" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Boris Cherny (@bcherny) - Claude Code Creator
               </a>
             </li>
             <li>
-              <a href="https://x.com/thsottiaux/status/2006624792531923266" target="_blank" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
+              <a href="https://x.com/thsottiaux/status/2006624792531923266" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2 hover:translate-x-1 transition">
                 <span>→</span> Tibo (@thsottiaux) - Codex tips
               </a>
             </li>
@@ -3129,6 +3196,8 @@ Do NOT make any changes. Investigation only.</code></pre>
     </svg>
   </button>
 
+  </main><!-- End Main Content -->
+
   <!-- ==================== FOOTER SECTION ==================== -->
   <footer class="section-spacing !pb-8 px-6 border-t border-white/5">
     <div class="max-w-4xl mx-auto">
@@ -3141,14 +3210,14 @@ Do NOT make any changes. Investigation only.</code></pre>
         <p class="text-muted mb-6">Product person shipping real products with AI</p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8">
-          <a href="https://hubeiqiao.com" target="_blank" class="text-link flex items-center gap-2">
+          <a href="https://hubeiqiao.com" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2">
             <span>🌐</span> hubeiqiao.com
           </a>
-          <a href="https://x.com/hubeiqiao" target="_blank" class="text-link flex items-center gap-2">
+          <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             @hubeiqiao
           </a>
-          <a href="https://www.linkedin.com/in/hubeiqiao/" target="_blank" class="text-link flex items-center gap-2">
+          <a href="https://www.linkedin.com/in/hubeiqiao/" target="_blank" rel="noopener noreferrer" class="text-link flex items-center gap-2">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
@@ -3168,6 +3237,7 @@ Do NOT make any changes. Investigation only.</code></pre>
         <a
           href="https://hubeiqiao.com/blog/2e80df12-ec77-803f-9814-c71bff16feee"
           target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-surface hover:bg-surface-hover px-6 py-3 rounded-full transition"
         >
           <span>📄</span>
@@ -3178,7 +3248,7 @@ Do NOT make any changes. Investigation only.</code></pre>
       <!-- Footer Meta -->
       <div class="text-center text-dim text-sm space-y-1">
         <p>Last updated: January 14, 2026</p>
-        <p>Drafted by <a href="http://hubeiqiao.com" target="_blank" class="text-link">Joe Hu</a> · Polished with <a href="https://claude.com/blog/cowork-research-preview" target="_blank" class="text-link">Claude Cowork</a></p>
+        <p>Drafted by <a href="http://hubeiqiao.com" target="_blank" rel="noopener noreferrer" class="text-link">Joe Hu</a> · Polished with <a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener noreferrer" class="text-link">Claude Cowork</a></p>
       </div>
     </div>
   </footer>
@@ -3188,10 +3258,14 @@ Do NOT make any changes. Investigation only.</code></pre>
     // Mobile Menu Toggle
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenuDropdown');
-      menu.classList.toggle('hidden');
+      const button = document.querySelector('.mobile-menu');
+      const isHidden = menu.classList.toggle('hidden');
+      button.setAttribute('aria-expanded', !isHidden);
     }
 
     function closeMobileMenu() {
+      const button = document.querySelector('.mobile-menu');
+      button.setAttribute('aria-expanded', 'false');
       const menu = document.getElementById('mobileMenuDropdown');
       menu.classList.add('hidden');
     }
@@ -3377,10 +3451,11 @@ Do NOT make any changes. Investigation only.</code></pre>
   </script>
 
   <!-- Lightbox Modal -->
-  <div id="lightbox-modal">
-    <button class="lightbox-close" aria-label="Close">&times;</button>
+  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <h2 id="lightbox-title" class="sr-only">Image Preview</h2>
+    <button class="lightbox-close" aria-label="Close image preview">&times;</button>
     <div class="lightbox-wrapper">
-      <img class="lightbox-image" src="" alt="">
+      <img class="lightbox-image" src="" alt="Enlarged preview">
     </div>
   </div>
 
