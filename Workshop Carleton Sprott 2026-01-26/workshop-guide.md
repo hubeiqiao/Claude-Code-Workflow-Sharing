@@ -41,6 +41,20 @@ Today, I am building my first commercial product — a real application with:
 
 **I am a living example of what's possible.**
 
+![My Personal Website](images/joe-personal-website.png)
+
+---
+
+## Why Am I Here?
+
+This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — building alongside high-agency people who believe in shipping fast.
+
+![AGI Ventures Canada - Think in years. Ship this weekend.](images/agi-ventures-canada.png)
+
+The motto says it all: **"Think in years. Ship this weekend."**
+
+I'm here today to share what I've learned — because I believe anyone can do this.
+
 ---
 
 ## What This Workshop Is About
@@ -113,6 +127,12 @@ The first step is always the hardest. But that first step is also all it takes.
 ## What Does "Building" Actually Look Like?
 
 Let's demystify this.
+
+### The Tool: Claude Code
+
+![Claude Code Interface](images/claude-code-interface.png)
+
+This is Claude Code — an AI coding assistant that runs in your terminal. You type what you want in plain English, and it writes the code, creates files, and runs commands for you.
 
 ### What AI Can Help You Create
 
@@ -366,6 +386,8 @@ Within minutes, your website is live. Real URL. Real website. Accessible to anyo
 ---
 
 ## Resources to Continue Learning
+
+![Claude Code](images/claude_code.jpeg)
 
 ### Getting Started
 - **Claude.ai** — Start conversations with AI (free tier available)
