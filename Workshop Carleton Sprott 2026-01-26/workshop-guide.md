@@ -5,6 +5,10 @@
 
 ---
 
+![Vibe Engineering](images/01-vibe-engineering-hero.png)
+
+---
+
 ## The New Reality
 
 > "There are no limits anymore. Anyone can do anything. The only limiting factors are agency and ambition.
@@ -21,6 +25,8 @@ This is not a prediction. This is happening right now.
 
 ## Who Am I?
 
+![Joe Hu](images/headshot-optimized.jpg)
+
 My name is Joe Hu. I am a product person, not a software engineer.
 
 Three months ago, I didn't know what a "pull request" was.
@@ -30,6 +36,8 @@ Today, I am building my first commercial product — a real application with:
 - Payment processing
 - Cloud infrastructure
 - Production deployment
+
+![Joe Speaking App](images/joe_speaking_icon.webp)
 
 **I am a living example of what's possible.**
 
@@ -75,6 +83,8 @@ Here's what most people get wrong: They think AI is magic. They type vague reque
 This doesn't work.
 
 **The bottleneck is not AI's capability. It's your ability to articulate what you want.**
+
+![Write first, then use AI](images/05-raw-draft-statistics.png)
 
 What works:
 - Write down what you want BEFORE you talk to AI
@@ -203,6 +213,8 @@ Your judgment matters. Don't skip this step.
 
 Things will go wrong. This is normal.
 
+![AI responds to pushback](images/02-pushback-investigate-deeper.png)
+
 When something breaks:
 1. **Describe what you expected**
 2. **Describe what actually happened**
@@ -213,9 +225,29 @@ You don't need to understand the technical details. You just need to be a good c
 
 ---
 
-## Why Personal Websites Matter for Your Career
+## Live Demo: Transforming This Document
 
-Let me be specific about today's exercise.
+**What you're about to witness:**
+
+This exact markdown document — the plain text you're reading — will be transformed into a fully customized, visually polished website.
+
+Right now, this is just text. Simple formatting. No colors. No layout. No interactivity.
+
+In the next few minutes, we will:
+1. Take this raw content
+2. Use AI to design and build a complete website
+3. Deploy it live on the internet
+4. Show you every step of the process
+
+**This is the power of modern AI tools.**
+
+---
+
+## Your Challenge: Build Your Own Personal Website
+
+After seeing this demo, here's what I suggest you try:
+
+### Why a Personal Website?
 
 A personal website is one of the most valuable career assets you can have:
 
@@ -236,6 +268,17 @@ A personal website is one of the most valuable career assets you can have:
 - Create a central hub for your work
 - Learn the fundamentals of how the internet works
 - Prove to yourself that you can build things
+
+### Getting Started
+
+You don't need to do this today. But consider this your homework:
+
+1. **Write a simple description** of what you want your website to include
+2. **Open Claude.ai** (free tier available) and paste your description
+3. **Ask AI to help you plan** the structure
+4. **Start building** one section at a time
+
+The website you create doesn't have to be perfect. It just has to exist.
 
 ---
 
@@ -295,17 +338,18 @@ The only thing separating you from shipping your first product is the decision t
 
 ---
 
-## What We'll Build Today
+## From Document to Deployed Website
 
-In this workshop, we will transform this very document into a beautiful, polished personal website.
+![Vercel Deployments](images/22-vercel-deployments.png)
 
-You will see:
-1. How plain text becomes a real web page
-2. How to communicate with AI effectively
-3. How to test and refine results
-4. How to deploy something live on the internet
+The deployment process is simpler than you think:
 
-**The document you're reading right now will become a live website by the end of this session.**
+1. **Write your content** (like this document)
+2. **Let AI build the website**
+3. **Push to GitHub** (a free code hosting service)
+4. **Deploy with Vercel** (free for personal projects)
+
+Within minutes, your website is live. Real URL. Real website. Accessible to anyone in the world.
 
 ---
 
@@ -313,9 +357,9 @@ You will see:
 
 1. **Today**: Try building something small. Anything. A simple webpage. A document. Just start.
 
-2. **This Week**: Identify one problem in your life that software could solve. Write down what a solution would look like.
+2. **This Week**: Write down what you want your personal website to include. Be specific about the sections and content.
 
-3. **This Month**: Build that solution. Ship it. Share it with one person.
+3. **This Month**: Build that website. Ship it. Share it with one person.
 
 4. **This Year**: Look back and notice how far you've come.
 
@@ -327,6 +371,7 @@ You will see:
 - **Claude.ai** — Start conversations with AI (free tier available)
 - **Claude Code** — Build software directly from your terminal
 - **Vercel** — Deploy websites for free in minutes
+- **GitHub** — Store and share your code
 
 ### My Workflow Documentation
 - **cc.hubeiqiao.com** — My detailed Claude Code workflow guide
