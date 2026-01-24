@@ -67,6 +67,92 @@ The rules have changed.
 
 ---
 
+## 🎬 Live Demo: Watch This Document Transform Into a Website
+
+> **⏱️ This demo runs ~15 minutes — sit back and witness the future of building.**
+
+**Right now, you're looking at plain text.**
+
+This markdown document — simple formatting, no colors, no layout, no interactivity — is about to become something completely different.
+
+**In the next 15 minutes, you will witness:**
+
+1. 📄 **This exact raw content** taken as input
+2. 🎨 **AI designing** a complete, beautiful website
+3. ⚡ **Code being written** in real-time
+4. 🌐 **A live deployment** to the actual internet
+5. 📱 **Mobile-responsive design** that works everywhere
+
+**Why start with this?**
+
+Because seeing is believing. I could tell you that anyone can build products with AI. But *showing* you — in real-time — is infinitely more powerful.
+
+By the end of this demo, you'll understand:
+- What AI can actually do
+- How fast modern development can be
+- Why the old barriers no longer exist
+
+**Let's begin.**
+
+---
+
+### Demo Prompt (What I'm About to Say to AI)
+
+> *This is the exact prompt I'll use — notice how it's written in plain English, not code:*
+
+```
+I want you to transform this document into a stunning, beautiful, and aesthetic
+website for people who couldn't attend this workshop to experience the content.
+
+CONTENT REQUIREMENTS:
+- Use this workshop guide (workshop-guide.md) as the complete source
+- DO NOT compact or summarize any content — every section must appear on the website
+- Preserve all images and integrate them beautifully into the design
+
+DESIGN REQUIREMENTS:
+- Create a modern, professional design that reflects innovation and accessibility
+- Use the hero image (01-vibe-engineering-hero.png) prominently
+- Ensure excellent typography and visual hierarchy
+- Add smooth scrolling and subtle animations where appropriate
+- Design must be mobile-responsive and work beautifully on all screen sizes
+
+TECHNICAL REQUIREMENTS:
+- Add proper metadata for social media sharing (Open Graph, Twitter cards)
+- Optimize for fast loading
+- Ensure accessibility standards are met
+
+AUTHOR INFORMATION TO INCLUDE:
+- Website: hubeiqiao.com
+- X/Twitter: @hubeiqiao
+- LinkedIn: linkedin.com/in/hubeiqiao
+
+PROCESS:
+1. First, review all available images in the images folder
+2. Create a design plan before coding
+3. If anything is unclear, ask me questions using "ask-questions-if-underspecified"
+4. After building, use browser preview to verify the design
+5. Check that all images display correctly and are appropriately sized
+6. Verify mobile responsiveness
+
+Please begin by reviewing the content and images, then present your design plan.
+```
+
+---
+
+### What to Watch For During the Demo
+
+As AI works, notice:
+
+- **The conversation** — I'm directing, not coding
+- **The iterations** — Things don't have to be perfect first try
+- **The speed** — What used to take days happens in minutes
+- **The questions** — AI asks for clarification when needed
+- **The result** — A real, deployed website
+
+*[Demo begins...]*
+
+---
+
 ## Three Truths for the AI Era
 
 ### Truth #1: You Can Now Build an Entire Product on Your Own
@@ -242,24 +328,6 @@ When something breaks:
 4. **Let AI investigate**
 
 You don't need to understand the technical details. You just need to be a good communicator about what you observe.
-
----
-
-## Live Demo: Transforming This Document
-
-**What you're about to witness:**
-
-This exact markdown document — the plain text you're reading — will be transformed into a fully customized, visually polished website.
-
-Right now, this is just text. Simple formatting. No colors. No layout. No interactivity.
-
-In the next few minutes, we will:
-1. Take this raw content
-2. Use AI to design and build a complete website
-3. Deploy it live on the internet
-4. Show you every step of the process
-
-**This is the power of modern AI tools.**
 
 ---
 
