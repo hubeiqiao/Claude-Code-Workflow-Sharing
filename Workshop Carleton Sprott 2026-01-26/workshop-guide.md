@@ -31,7 +31,7 @@ My name is Joe Hu. I am a product person, not a software engineer.
 
 Three months ago, I didn't know what a "pull request" was.
 
-Today, I am building my first commercial product — a real application with:
+Today, I am building my first commercial product — **JoeSpeaking.com** — a real application with:
 - User authentication
 - Payment processing
 - Cloud infrastructure
@@ -39,13 +39,15 @@ Today, I am building my first commercial product — a real application with:
 
 ![Joe Speaking App](images/joe_speaking_icon.webp)
 
+**Even though I haven't officially released the product yet, I've already landed 3 customers from Australia, Japan, and China.**
+
 **I am a living example of what's possible.**
 
 ![My Personal Website](images/joe-personal-website.png)
 
 ---
 
-## Why Am I Here?
+## AGI Ventures Canada Hacker House
 
 This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — building alongside high-agency people who believe in shipping fast.
 
@@ -101,6 +103,9 @@ By the end of this demo, you'll understand:
 > *This is the exact prompt I'll use — notice how it's written in plain English, not code:*
 
 ```
+First, load your frontend design skills — think like a professional UI/UX designer
+with expertise in modern web aesthetics, typography, and visual hierarchy.
+
 I want you to transform this document into a stunning, beautiful, and aesthetic
 website for people who couldn't attend this workshop to experience the content.
 
