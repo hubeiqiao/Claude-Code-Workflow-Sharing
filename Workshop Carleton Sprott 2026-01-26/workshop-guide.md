@@ -103,7 +103,10 @@ By the end of this demo, you'll understand:
 > *This is the exact prompt I'll use — notice how it's written in plain English, not code:*
 
 ```
-First, load your frontend design skills — think like a professional UI/UX designer
+First, read and understand everything in the "Workshop Carleton Sprott 2026-01-26" folder,
+including this workshop guide and all images.
+
+Then, load your frontend design skills — think like a professional UI/UX designer
 with expertise in modern web aesthetics, typography, and visual hierarchy.
 
 I want you to transform this document into a stunning, beautiful, and aesthetic
@@ -130,6 +133,10 @@ AUTHOR INFORMATION TO INCLUDE:
 - Website: hubeiqiao.com
 - X/Twitter: @hubeiqiao
 - LinkedIn: linkedin.com/in/hubeiqiao
+
+INTEGRATION:
+- Find an appropriate place on the main page (index.html) to add a link or section
+  for this workshop/sharing session so visitors can discover it
 
 PROCESS:
 1. First, review all available images in the images folder
