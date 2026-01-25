@@ -17,7 +17,7 @@
 >
 > You can just ship things."
 >
-> — Guillermo Rauch (@rauchg), CEO of Vercel
+> — [@RAUCHG](https://x.com/rauchg/status/1999898954427961611), CEO of Vercel
 
 This is not a prediction. This is happening right now.
 
@@ -29,15 +29,17 @@ This is not a prediction. This is happening right now.
 
 My name is Joe Hu. I am a product person, not a software engineer.
 
+I'm currently a student in Carleton's [Technology Innovation Management (TIM)](https://carleton.ca/tim/) program.
+
 Three months ago, I didn't know what a "pull request" was.
 
-Today, I am building my first commercial product — **JoeSpeaking.com** — a real application with:
+Today, I am building my first commercial product — **Joe Speaking** — a real application with:
 - User authentication
 - Payment processing
 - Cloud infrastructure
 - Production deployment
 
-![Joe Speaking App](images/joe_speaking_icon.webp)
+![Joe Speaking](images/joe_speaking_icon.webp)
 
 **Even though I haven't officially released the product yet, I've already landed 3 customers from Australia, Japan, and China.**
 
@@ -49,7 +51,7 @@ Today, I am building my first commercial product — **JoeSpeaking.com** — a r
 
 ## AGI Ventures Canada Hacker House
 
-This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — building alongside high-agency people who believe in shipping fast.
+This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — building my first commercialized product alongside high-agency people who believe in shipping fast.
 
 ![AGI Ventures Canada - Think in years. Ship this weekend.](images/agi-ventures-canada.png)
 
@@ -65,7 +67,11 @@ I'm not here to teach you to code.
 
 I'm here to show you that **you don't need to know how to code** to build real products.
 
+This is about something more fundamental: **the mindset shift from consumer to builder.**
+
 The rules have changed.
+
+**Everyone is going to have the power to do everything they want, starting from the digital world and then the physical.**
 
 ---
 
@@ -76,6 +82,8 @@ The rules have changed.
 **Right now, you're looking at plain text.**
 
 This markdown document — simple formatting, no colors, no layout, no interactivity — is about to become something completely different.
+
+**The website you're viewing right now? We built it in ~15 minutes using this exact process.**
 
 **In the next 15 minutes, you will witness:**
 
@@ -103,7 +111,10 @@ By the end of this demo, you'll understand:
 > *This is the exact prompt I'll use — notice how it's written in plain English, not code:*
 
 ```
-First, load your frontend design skills — think like a professional UI/UX designer
+First, read and understand everything in the "workshop-carleton-202601" folder,
+including this workshop guide and all images.
+
+Then, use /frontend-design — think like a professional UI/UX designer
 with expertise in modern web aesthetics, typography, and visual hierarchy.
 
 I want you to transform this document into a stunning, beautiful, and aesthetic
@@ -123,6 +134,7 @@ DESIGN REQUIREMENTS:
 
 TECHNICAL REQUIREMENTS:
 - Add proper metadata for social media sharing (Open Graph, Twitter cards)
+- Set up favicon using the author's avatar
 - Optimize for fast loading
 - Ensure accessibility standards are met
 
@@ -130,6 +142,10 @@ AUTHOR INFORMATION TO INCLUDE:
 - Website: hubeiqiao.com
 - X/Twitter: @hubeiqiao
 - LinkedIn: linkedin.com/in/hubeiqiao
+
+INTEGRATION:
+- Find an appropriate place on the main page (index.html) to add a link or section
+  for this workshop/sharing session so visitors can discover it
 
 PROCESS:
 1. First, review all available images in the images folder
@@ -140,6 +156,14 @@ PROCESS:
 6. Verify mobile responsiveness
 
 Please begin by reviewing the content and images, then present your design plan.
+```
+
+### Review Prompt (After Building)
+
+> *After the website is built, use this prompt to review and refine:*
+
+```
+Please review the website design using /agent-browser and /frontend-design skills. Ensure the image sizes and colors look appropriate, and confirm the site works well on small screens.
 ```
 
 ---
@@ -219,11 +243,11 @@ The first step is always the hardest. But that first step is also all it takes.
 
 Let's demystify this.
 
-### The Tool: Claude Code
+### The Tool: [Claude Code](https://claude.com/product/claude-code)
 
 ![Claude Code Interface](images/claude-code-interface.png)
 
-This is Claude Code — an AI coding assistant that runs in your terminal. You type what you want in plain English, and it writes the code, creates files, and runs commands for you.
+This is [Claude Code](https://claude.com/product/claude-code) — an AI coding assistant that runs in your terminal. You type what you want in plain English, and it writes the code, creates files, and runs commands for you.
 
 ### What AI Can Help You Create
 
@@ -367,7 +391,7 @@ A personal website is one of the most valuable career assets you can have:
 You don't need to do this today. But consider this your homework:
 
 1. **Write a simple description** of what you want your website to include
-2. **Open Claude.ai** (free tier available) and paste your description
+2. **Open an AI assistant** like [Google AI Studio](https://aistudio.google.com/) (free) or [Claude](https://claude.ai/) and paste your description
 3. **Ask AI to help you plan** the structure
 4. **Start building** one section at a time
 
@@ -379,11 +403,11 @@ The website you create doesn't have to be perfect. It just has to exist.
 
 ### "But I don't know how to code"
 
-You don't need to. I don't know how to code either. I ship products anyway.
+You don't need to write code — but you do need to understand the fundamentals: how files are organized, how websites work, what a deployment means. Learn the workflow, not the syntax. And when you're stuck? Just ask AI. It will explain anything you don't understand.
 
 ### "What if I break something?"
 
-You're working on your own computer, on your own project. There's nothing to break that can't be fixed. Every mistake is a learning opportunity.
+Start small. Build something tiny first — a simple webpage, a basic form. You're working on your own computer, on your own project. There's nothing to break that can't be fixed. Git tracks every change, so you can always go back. Every mistake is a learning opportunity, and AI can help you understand what went wrong.
 
 ### "Isn't this cheating?"
 
@@ -433,7 +457,9 @@ The only thing separating you from shipping your first product is the decision t
 
 ## From Document to Deployed Website
 
-![Vercel Deployments](images/22-vercel-deployments.png)
+```
+📄 Document  →  🤖 AI Builds  →  🐙 GitHub  →  ▲ Vercel  →  ✅ Live!
+```
 
 The deployment process is simpler than you think:
 
@@ -463,31 +489,42 @@ Within minutes, your website is live. Real URL. Real website. Accessible to anyo
 ![Claude Code](images/claude_code.jpeg)
 
 ### Getting Started
-- **Claude.ai** — Start conversations with AI (free tier available)
-- **Claude Code** — Build software directly from your terminal
+- **[Google AI Studio](https://aistudio.google.com/)** — Free AI assistant with Gemini (no credit card required)
+- **[Claude Code](https://claude.com/product/claude-code)** — Build software directly from your terminal
 - **Vercel** — Deploy websites for free in minutes
 - **GitHub** — Store and share your code
 
 ### My Workflow Documentation
-- **cc.hubeiqiao.com** — My detailed Claude Code workflow guide
+- **cc.hubeiqiao.com** — My detailed [Claude Code](https://claude.com/product/claude-code) workflow guide
 - **@hubeiqiao** — Follow me on X/Twitter for updates
 
 ### The Community
-- The best learning happens in communities of builders
-- Find people who are also shipping things
-- Share what you're working on
+
+The best learning happens in communities of builders. Find people who are also shipping things. Share what you're working on.
+
+![AGI Ventures Canada](images/agi-ventures-logo.jpg)
+
+**[AGI Ventures Canada](https://www.agiventures.ca/)** — Ottawa's builder community for AI-powered products
 
 ---
 
 ## Final Thought
 
-The tools exist. The knowledge is accessible. The barriers are gone.
-
-**The only question is: Will you build?**
+The tools exist. The knowledge is accessible. **The barriers are gone.**
 
 Every successful product, every successful company, every successful career started with someone deciding to make something.
 
-Today is a good day to start.
+**Will you build?**
+
+---
+
+*January 2026*
+
+**It's going to be *wild* looking back at this year.**
+
+The tools that exist today didn't exist a year ago. Imagine what December will look like.
+
+**It's time to build.**
 
 ---
 
