@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,9 @@
   <meta name="twitter:description" content="How Anyone Can Ship Real Products with AI - Carleton University Workshop">
   <meta name="twitter:image" content="images/workshop_preview.png">
 
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0c0c10">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,17 +32,30 @@
   <style>
     /* ==================== CSS VARIABLES ==================== */
     :root {
-      --color-void: #050505;
-      --color-dark: #0a0a0a;
-      --color-surface: #141414;
-      --color-surface-hover: #1a1a1a;
+      /* Backgrounds */
+      --color-void: #050508;
+      --color-dark: #0c0c10;
+      --color-surface: #16161c;
+      --color-surface-hover: #1e1e26;
       --color-border: rgba(255, 255, 255, 0.08);
-      --color-cream: #f5f5f0;
-      --color-muted: #a3a3a3;
-      --color-dim: #666;
+
+      /* Text */
+      --color-cream: #f4f4f2;
+      --color-muted: #9ca3af;
+      --color-dim: #6b7280;
+
+      /* Accent: Vibrant orange */
       --color-accent: #ff6b35;
       --color-accent-hover: #ff8555;
-      --color-teal: #2dd4bf;
+
+      /* Secondary: Teal complement */
+      --color-secondary: #2dd4bf;
+      --color-secondary-hover: #5eead4;
+
+      /* Success/positive */
+      --color-success: #34d399;
+
+      /* Typography */
       --font-display: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -359,9 +375,13 @@
       border-radius: 12px;
       padding: 0.75rem;
       margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .qr-card img {
+    .qr-card img,
+    #qrcode svg {
       display: block;
       width: 120px;
       height: 120px;
@@ -456,7 +476,7 @@
     }
 
     .card:hover {
-      border-color: rgba(255, 107, 53, 0.3);
+      border-color: rgba(255, 107, 53, 0.4);
       transform: translateY(-2px);
     }
 
@@ -533,7 +553,7 @@
       border: 4px solid var(--color-accent);
       overflow: hidden;
       background: radial-gradient(circle at center, #f5e6d3 0%, #e8d4b8 50%, #d4c4a8 100%);
-      box-shadow: 0 0 40px rgba(245, 180, 100, 0.3);
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.25);
       margin: 0 auto 1.5rem;
     }
 
@@ -618,7 +638,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: var(--color-teal);
+      color: var(--color-secondary);
     }
 
     .highlight-box {
@@ -668,7 +688,7 @@
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 5vw, 3rem);
       font-weight: 700;
-      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-teal) 100%);
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -783,7 +803,7 @@
     }
 
     .comparison-card.new h4 {
-      color: var(--color-teal);
+      color: var(--color-secondary);
     }
 
     .comparison-card ul {
@@ -912,13 +932,18 @@
     }
 
     .faq-answer {
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: grid-template-rows 0.3s ease;
     }
 
     .faq-item.active .faq-answer {
-      max-height: 500px;
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer > div {
+      overflow: hidden;
     }
 
     .faq-answer-content {
@@ -1150,7 +1175,7 @@
 
     /* ==================== UTILITIES ==================== */
     .text-accent { color: var(--color-accent); }
-    .text-teal { color: var(--color-teal); }
+    .text-secondary { color: var(--color-secondary); }
     .text-muted { color: var(--color-muted); }
     .text-center { text-align: center; }
     .mb-1 { margin-bottom: 0.5rem; }
@@ -1158,6 +1183,178 @@
     .mb-3 { margin-bottom: 1.5rem; }
     .mb-4 { margin-bottom: 2rem; }
     .mt-4 { margin-top: 2rem; }
+
+    /* ==================== FOCUS STATES (A11y) ==================== */
+    *:focus {
+      outline: none;
+    }
+
+    *:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .faq-question:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: -2px;
+    }
+
+    .social-links a:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .cta-button:focus-visible {
+      outline: 2px solid var(--color-cream);
+      outline-offset: 3px;
+    }
+
+    .resource-card:focus-visible,
+    .card:focus-visible,
+    .truth-card:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* ==================== REDUCED MOTION (A11y) ==================== */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      .scroll-indicator {
+        animation: none;
+      }
+
+      .hero-badge::before {
+        animation: none;
+      }
+    }
+
+    /* ==================== PRINT STYLES ==================== */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 12pt;
+        line-height: 1.5;
+      }
+
+      .nav,
+      .mobile-menu,
+      .scroll-indicator,
+      .qr-card,
+      .copy-btn,
+      .back-link,
+      .social-links,
+      .cta-button {
+        display: none !important;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 2rem 0;
+        background: #fff;
+      }
+
+      .hero-bg {
+        display: none;
+      }
+
+      .hero-title,
+      .hero-subtitle {
+        color: #000;
+        text-shadow: none;
+      }
+
+      .section {
+        padding: 2rem 0;
+        page-break-inside: avoid;
+      }
+
+      .section-alt,
+      .quote-section {
+        background: #f5f5f5;
+      }
+
+      .card,
+      .glass-card,
+      .truth-card,
+      .comparison-card,
+      .faq-item {
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .text-accent,
+      .text-secondary {
+        color: #000;
+        font-weight: 600;
+      }
+
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+      }
+
+      .motto-text,
+      .final-hero-text {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: #000;
+        background-clip: unset;
+        color: #000;
+      }
+
+      img {
+        max-width: 100%;
+        page-break-inside: avoid;
+      }
+
+      h1, h2, h3, h4 {
+        page-break-after: avoid;
+        color: #000;
+      }
+
+      .footer {
+        border-top: 1px solid #ccc;
+      }
+    }
 
     /* ==================== SKIP LINK ==================== */
     .skip-link {
@@ -1264,8 +1461,8 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="images/headshot-optimized.jpg" alt="Joe Hu" loading="lazy">
+      <a href="#hero" class="nav-logo" aria-label="Carleton Workshop - Return to top">
+        <img src="images/headshot-optimized.jpg" alt="" loading="lazy" aria-hidden="true" width="36" height="36">
         <span>Carleton Workshop</span>
       </a>
 
@@ -1287,15 +1484,15 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#demo" onclick="closeMenu()">Live Demo</a>
-    <a href="#truths" onclick="closeMenu()">Three Truths</a>
-    <a href="#process" onclick="closeMenu()">Process</a>
-    <a href="#challenge" onclick="closeMenu()">Challenge</a>
-    <a href="#resources" onclick="closeMenu()">Resources</a>
-    <a href="../index.html" onclick="closeMenu()">← Back to Main Site</a>
-  </div>
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#about" onclick="closeMenu()" role="menuitem">About</a>
+    <a href="#demo" onclick="closeMenu()" role="menuitem">Live Demo</a>
+    <a href="#truths" onclick="closeMenu()" role="menuitem">Three Truths</a>
+    <a href="#process" onclick="closeMenu()" role="menuitem">Process</a>
+    <a href="#challenge" onclick="closeMenu()" role="menuitem">Challenge</a>
+    <a href="#resources" onclick="closeMenu()" role="menuitem">Resources</a>
+    <a href="../index.html" onclick="closeMenu()" role="menuitem">← Back to Main Site</a>
+  </nav>
 
   <!-- Main Content -->
   <main id="main">
@@ -1303,7 +1500,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
       <div class="hero-bg">
-        <img src="images/01-vibe-engineering-hero.png" alt="Vibe Engineering" loading="eager">
+        <img src="images/01-vibe-engineering-hero.png" alt="Vibe Engineering" width="886" height="886" fetchpriority="high">
       </div>
 
       <div class="hero-content">
@@ -1313,30 +1510,30 @@
 
         <div class="hero-meta fade-in stagger-3">
           <span>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
             January 26, 2026
           </span>
           <span>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Carleton University
           </span>
           <span>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
             Sprott School of Business
           </span>
         </div>
       </div>
 
       <!-- QR Code Card -->
-      <div class="qr-card">
+      <div class="qr-card" aria-label="QR code to access this workshop at cc.hubeiqiao.com">
         <div class="qr-card-inner">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://cc.hubeiqiao.com/workshop-carleton-202601" alt="QR Code to access this workshop">
+          <div id="qrcode" style="width: 120px; height: 120px; display: flex; justify-content: center; align-items: center;"></div>
         </div>
         <p class="qr-card-label">Scan to Follow Along</p>
         <p class="qr-card-url">cc.hubeiqiao.com</p>
       </div>
 
-      <div class="scroll-indicator">
+      <div class="scroll-indicator" aria-hidden="true">
         <span>Scroll</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
@@ -1352,7 +1549,7 @@
           <br><br>
           Never has a college degree, work experience, network, even the accumulation of knowledge been worth less.
           <br><br>
-          <span style="font-size: 1.3em; font-weight: 700; color: #fff; font-style: italic; font-family: Georgia, 'Times New Roman', serif;">You can just ship things."</span>
+          <span style="font-size: 1.3em; font-weight: 700; color: var(--color-cream); font-style: italic; font-family: Georgia, 'Times New Roman', serif;">You can just ship things."</span>
         </p>
         <p class="quote-author">— <a href="https://x.com/rauchg/status/1999898954427961611" target="_blank" rel="noopener noreferrer"><strong>@RAUCHG</strong></a>, CEO of Vercel</p>
       </div>
@@ -1368,7 +1565,7 @@
         <div class="author-section">
           <div class="author-photo fade-in">
             <div class="author-photo-circle">
-              <img src="images/headshot-optimized.jpg" alt="Joe Hu">
+              <img src="images/headshot-optimized.jpg" alt="Joe Hu" width="200" height="200">
             </div>
             <h3 class="author-name">Joe Hu</h3>
             <p class="author-title">Product Person & Builder</p>
@@ -1394,7 +1591,7 @@
             <!-- Joe Speaking Product Card -->
             <a href="https://joespeaking.com" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
               <div style="display: flex; align-items: center; gap: 1rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; margin: 1rem 0; transition: border-color 0.3s ease;">
-                <img src="images/joe_speaking_icon.webp" alt="Joe Speaking App Icon" style="width: 64px; height: 64px; border-radius: 12px; flex-shrink: 0;">
+                <img src="images/joe_speaking_icon.webp" alt="Joe Speaking App Icon" width="64" height="64" style="border-radius: 12px; flex-shrink: 0;">
                 <div>
                   <h4 style="font-size: 1.125rem; color: var(--color-accent); margin-bottom: 0.25rem;">Joe Speaking</h4>
                   <p style="font-size: 0.875rem; color: var(--color-muted); margin: 0;">A real application with user authentication, payment processing, cloud infrastructure, and production deployment.</p>
@@ -1409,7 +1606,7 @@
             <p class="text-accent" style="font-size: 1.25rem; font-weight: 600;">I am a living example of what's possible.</p>
 
             <div class="image-card mt-4">
-              <img src="images/joe-personal-website.png" alt="Joe's Personal Website" loading="lazy">
+              <img src="images/joe-personal-website.png" alt="Joe's Personal Website" loading="lazy" width="1443" height="1154">
               <p class="image-caption">My personal website — built with AI</p>
             </div>
           </div>
@@ -1422,7 +1619,7 @@
       <div class="container">
         <div class="text-center fade-in">
           <div class="image-card mb-4" style="max-width: 700px; margin: 0 auto;">
-            <img src="images/agi-ventures-canada.png" alt="AGI Ventures Canada Hacker House" loading="lazy">
+            <img src="images/agi-ventures-canada.png" alt="AGI Ventures Canada Hacker House" loading="lazy" width="834" height="904">
           </div>
 
           <p class="text-muted" style="font-size: 1.125rem; max-width: 600px; margin: 2rem auto 4rem;">
@@ -1446,8 +1643,8 @@
 
         <div class="glass-card fade-in" style="max-width: 900px; margin: 0 auto; text-align: center;">
           <p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">I'm not here to teach you to code.</p>
-          <p class="text-muted" style="font-size: 1.125rem; white-space: nowrap;">I'm here to show you that <strong class="text-accent">you don't need to know how to code</strong> to build real products.</p>
-          <p class="text-muted mt-3" style="font-size: 1.125rem; white-space: nowrap;">This is about something more fundamental: <strong class="text-cream">the mindset shift from consumer to builder.</strong></p>
+          <p class="text-muted" style="font-size: 1.125rem;">I'm here to show you that <strong class="text-accent">you don't need to know how to code</strong> to build real products.</p>
+          <p class="text-muted mt-3" style="font-size: 1.125rem;">This is about something more fundamental: <strong class="text-cream">the mindset shift from consumer to builder.</strong></p>
           <p class="text-accent mt-4" style="font-size: 1.25rem; font-weight: 600;">The rules have changed.</p>
         </div>
       </div>
@@ -1464,7 +1661,7 @@
         <div style="max-width: 800px; margin: 0 auto;">
           <div class="glass-card fade-in mb-4">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-              <span style="font-size: 2rem;">⏱️</span>
+              <span style="font-size: 2rem;" aria-hidden="true">⏱️</span>
               <p style="font-size: 1.25rem; font-weight: 600; margin: 0;">This demo runs ~15 minutes — sit back and witness the future of building.</p>
             </div>
 
@@ -1476,30 +1673,30 @@
 
             <ul style="list-style: none; margin-bottom: 1.5rem;">
               <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                <span>📄</span>
+                <span aria-hidden="true">📄</span>
                 <span class="text-muted">This exact raw content taken as input</span>
               </li>
               <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                <span>🎨</span>
+                <span aria-hidden="true">🎨</span>
                 <span class="text-muted">AI designing a complete, beautiful website</span>
               </li>
               <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                <span>⚡</span>
+                <span aria-hidden="true">⚡</span>
                 <span class="text-muted">Code being written in real-time</span>
               </li>
               <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                <span>🌐</span>
+                <span aria-hidden="true">🌐</span>
                 <span class="text-muted">A live deployment to the actual internet</span>
               </li>
               <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.75rem;">
-                <span>📱</span>
+                <span aria-hidden="true">📱</span>
                 <span class="text-muted">Mobile-responsive design that works everywhere</span>
               </li>
             </ul>
           </div>
 
           <div class="image-card fade-in stagger-1 mb-4">
-            <img src="images/claude-code-interface.png" alt="Claude Code Interface" loading="lazy">
+            <img src="images/claude-code-interface.png" alt="Claude Code Interface" loading="lazy" width="1321" height="924">
             <p class="image-caption"><a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer" class="text-accent">Claude Code</a> — An AI coding assistant that runs in your terminal</p>
           </div>
 
@@ -1583,23 +1780,23 @@ Please begin by reviewing the content and images, then present your design plan.
             <h4 class="mb-2">What to Watch For During the Demo</h4>
             <ul style="list-style: none;">
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 <strong class="text-cream">The conversation</strong> — I'm directing, not coding
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 <strong class="text-cream">The iterations</strong> — Things don't have to be perfect first try
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 <strong class="text-cream">The speed</strong> — What used to take days happens in minutes
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 <strong class="text-cream">The questions</strong> — AI asks for clarification when needed
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 <strong class="text-cream">The result</strong> — A real, deployed website
               </li>
             </ul>
@@ -1627,7 +1824,7 @@ Please begin by reviewing the content and images, then present your design plan.
             <div class="truth-number">2</div>
             <h3>AI Needs Clear Planning</h3>
             <p>AI isn't magic. Vague requests produce vague results. The bottleneck is your ability to articulate what you want.</p>
-            <p class="text-teal mt-4" style="font-weight: 600;">AI amplifies your clarity.</p>
+            <p class="text-secondary mt-4" style="font-weight: 600;">AI amplifies your clarity.</p>
           </div>
 
           <div class="truth-card fade-in stagger-2">
@@ -1639,7 +1836,7 @@ Please begin by reviewing the content and images, then present your design plan.
         </div>
 
         <div class="image-card fade-in mt-4" style="max-width: 500px; margin: 3rem auto 0;">
-          <img src="images/05-raw-draft-statistics.png" alt="Write first, then use AI" loading="lazy">
+          <img src="images/05-raw-draft-statistics.png" alt="Write first, then use AI" loading="lazy" width="283" height="257">
           <p class="image-caption">Write down what you want BEFORE you talk to AI</p>
         </div>
       </div>
@@ -1659,22 +1856,22 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="glass-card fade-in stagger-1 mb-4">
-            <h3 class="text-teal mb-3">What AI Can Help You Create</h3>
+            <h3 class="text-secondary mb-3">What AI Can Help You Create</h3>
             <ul style="list-style: none; display: grid; gap: 0.75rem;">
               <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--color-muted);">
-                <span style="color: var(--color-accent);">🌐</span>
+                <span style="color: var(--color-accent);" aria-hidden="true">🌐</span>
                 <strong class="text-cream">Websites:</strong> Personal portfolios, landing pages, full web applications
               </li>
               <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--color-muted);">
-                <span style="color: var(--color-accent);">📄</span>
+                <span style="color: var(--color-accent);" aria-hidden="true">📄</span>
                 <strong class="text-cream">Documents:</strong> Reports, presentations, professional materials
               </li>
               <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--color-muted);">
-                <span style="color: var(--color-accent);">🔧</span>
+                <span style="color: var(--color-accent);" aria-hidden="true">🔧</span>
                 <strong class="text-cream">Tools:</strong> Automation scripts, data analysis, custom utilities
               </li>
               <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--color-muted);">
-                <span style="color: var(--color-accent);">🚀</span>
+                <span style="color: var(--color-accent);" aria-hidden="true">🚀</span>
                 <strong class="text-cream">Products:</strong> Real applications that solve real problems
               </li>
             </ul>
@@ -1685,42 +1882,42 @@ Please begin by reviewing the content and images, then present your design plan.
             <p class="text-muted mb-3">Think of AI as an extremely capable assistant who:</p>
             <ul style="list-style: none; margin-bottom: 1.5rem;">
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-teal);">✓</span>
+                <span style="position: absolute; left: 0; color: var(--color-secondary);" aria-hidden="true">✓</span>
                 Can write code in any programming language
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-teal);">✓</span>
+                <span style="position: absolute; left: 0; color: var(--color-secondary);" aria-hidden="true">✓</span>
                 Can search the internet for information
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-teal);">✓</span>
+                <span style="position: absolute; left: 0; color: var(--color-secondary);" aria-hidden="true">✓</span>
                 Can read and modify files on your computer
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-teal);">✓</span>
+                <span style="position: absolute; left: 0; color: var(--color-secondary);" aria-hidden="true">✓</span>
                 Can run commands and see results
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-teal);">✓</span>
+                <span style="position: absolute; left: 0; color: var(--color-secondary);" aria-hidden="true">✓</span>
                 Works 24/7 without getting tired
               </li>
             </ul>
             <p class="text-muted mb-3">But this assistant needs you to:</p>
             <ul style="list-style: none;">
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 Tell them what to build
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 Make decisions when there are choices
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 Test if the result matches what you wanted
               </li>
               <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--color-muted);">
-                <span style="position: absolute; left: 0; color: var(--color-accent);">→</span>
+                <span style="position: absolute; left: 0; color: var(--color-accent);" aria-hidden="true">→</span>
                 Guide them when something goes wrong
               </li>
             </ul>
@@ -1766,7 +1963,7 @@ Please begin by reviewing the content and images, then present your design plan.
                 <li>Let AI suggest options when you're unsure</li>
                 <li>Make decisions, even if they feel arbitrary</li>
               </ul>
-              <p class="text-teal mt-4" style="font-weight: 600;">A decision made is better than endless deliberation.</p>
+              <p class="text-secondary mt-4" style="font-weight: 600;">A decision made is better than endless deliberation.</p>
             </div>
           </div>
 
@@ -1779,7 +1976,7 @@ Please begin by reviewing the content and images, then present your design plan.
               <div class="comparison-grid mt-4">
                 <div class="comparison-card old">
                   <h4>
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
                     Bad Approach
                   </h4>
                   <ul>
@@ -1788,7 +1985,7 @@ Please begin by reviewing the content and images, then present your design plan.
                 </div>
                 <div class="comparison-card new">
                   <h4>
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
                     Good Approach
                   </h4>
                   <ul>
@@ -1811,7 +2008,7 @@ Please begin by reviewing the content and images, then present your design plan.
                 <li>Would I use this myself?</li>
                 <li>Would I show this to someone else?</li>
               </ul>
-              <p class="text-teal mt-4" style="font-weight: 600;">Your judgment matters. Don't skip this step.</p>
+              <p class="text-secondary mt-4" style="font-weight: 600;">Your judgment matters. Don't skip this step.</p>
             </div>
           </div>
 
@@ -1821,7 +2018,7 @@ Please begin by reviewing the content and images, then present your design plan.
               <h3>Iterate Based on Reality</h3>
               <p>Things will go wrong. This is normal.</p>
               <div class="image-card mt-4 mb-4">
-                <img src="images/02-pushback-investigate-deeper.png" alt="AI responds to pushback" loading="lazy">
+                <img src="images/02-pushback-investigate-deeper.png" alt="AI responds to pushback" loading="lazy" width="807" height="88">
                 <p class="image-caption">When something breaks, describe what you expected vs. what happened</p>
               </div>
               <ul>
@@ -1852,7 +2049,7 @@ Please begin by reviewing the content and images, then present your design plan.
 
             <div class="truth-grid">
               <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 1.5rem;">
-                <h4 class="text-teal mb-2">For Job Seekers</h4>
+                <h4 class="text-secondary mb-2">For Job Seekers</h4>
                 <ul style="list-style: none; font-size: 0.9375rem;">
                   <li style="padding: 0.25rem 0; color: var(--color-muted);">→ Stand out from hundreds of identical resumes</li>
                   <li style="padding: 0.25rem 0; color: var(--color-muted);">→ Show, don't just tell, what you can do</li>
@@ -1884,7 +2081,7 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="glass-card fade-in stagger-1">
-            <h3 class="text-teal mb-3">Getting Started</h3>
+            <h3 class="text-secondary mb-3">Getting Started</h3>
             <p class="text-muted mb-4">You don't need to do this today. But consider this your homework:</p>
             <ol style="list-style: none; counter-reset: item;">
               <li style="padding: 0.75rem 0; padding-left: 3rem; position: relative; color: var(--color-muted); counter-increment: item; border-bottom: 1px solid var(--color-border);">
@@ -1920,9 +2117,9 @@ Please begin by reviewing the content and images, then present your design plan.
 
         <div class="faq-list">
           <div class="faq-item fade-in">
-            <button class="faq-question" onclick="toggleFaq(this)">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               "But I don't know how to code"
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
@@ -1932,9 +2129,9 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="faq-item fade-in stagger-1">
-            <button class="faq-question" onclick="toggleFaq(this)">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               "What if I break something?"
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
@@ -1944,9 +2141,9 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="faq-item fade-in stagger-2">
-            <button class="faq-question" onclick="toggleFaq(this)">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               "Isn't this cheating?"
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
@@ -1956,9 +2153,9 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="faq-item fade-in stagger-3">
-            <button class="faq-question" onclick="toggleFaq(this)">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               "Won't AI take my job?"
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
@@ -1968,9 +2165,9 @@ Please begin by reviewing the content and images, then present your design plan.
           </div>
 
           <div class="faq-item fade-in stagger-4">
-            <button class="faq-question" onclick="toggleFaq(this)">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
               "This seems too good to be true"
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
@@ -1993,7 +2190,7 @@ Please begin by reviewing the content and images, then present your design plan.
         <div class="comparison-grid fade-in" style="max-width: 900px; margin: 0 auto;">
           <div class="comparison-card old">
             <h4>
-              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
               Old Mindset: Consumer
             </h4>
             <ul>
@@ -2006,7 +2203,7 @@ Please begin by reviewing the content and images, then present your design plan.
 
           <div class="comparison-card new">
             <h4>
-              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
               New Mindset: Builder
             </h4>
             <ul>
@@ -2082,7 +2279,7 @@ Please begin by reviewing the content and images, then present your design plan.
                 <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                   <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <span style="font-size: 0.75rem; color: var(--color-teal); font-weight: 600;">Live!</span>
+                <span style="font-size: 0.75rem; color: var(--color-secondary); font-weight: 600;">Live!</span>
               </div>
             </div>
           </div>
@@ -2090,19 +2287,19 @@ Please begin by reviewing the content and images, then present your design plan.
           <div class="glass-card fade-in stagger-1">
             <ol style="list-style: none; counter-reset: deploy;">
               <li style="padding: 1rem 0; padding-left: 3rem; position: relative; color: var(--color-muted); counter-increment: deploy; border-bottom: 1px solid var(--color-border);">
-                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-teal); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">1</span>
+                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-secondary); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">1</span>
                 <strong class="text-cream">Write your content</strong> (like this document)
               </li>
               <li style="padding: 1rem 0; padding-left: 3rem; position: relative; color: var(--color-muted); counter-increment: deploy; border-bottom: 1px solid var(--color-border);">
-                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-teal); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">2</span>
+                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-secondary); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">2</span>
                 <strong class="text-cream">Let AI build the website</strong>
               </li>
               <li style="padding: 1rem 0; padding-left: 3rem; position: relative; color: var(--color-muted); counter-increment: deploy; border-bottom: 1px solid var(--color-border);">
-                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-teal); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">3</span>
+                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-secondary); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">3</span>
                 <strong class="text-cream">Push to GitHub</strong> (a free code hosting service)
               </li>
               <li style="padding: 1rem 0; padding-left: 3rem; position: relative; color: var(--color-muted); counter-increment: deploy;">
-                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-teal); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">4</span>
+                <span style="position: absolute; left: 0; width: 2rem; height: 2rem; background: var(--color-secondary); color: var(--color-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem;">4</span>
                 <strong class="text-cream">Deploy with Vercel</strong> (free for personal projects)
               </li>
             </ol>
@@ -2154,7 +2351,7 @@ Please begin by reviewing the content and images, then present your design plan.
             <p>Free AI assistant with Gemini (no credit card)</p>
           </a>
           <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <img src="images/claude_code.jpeg" alt="Claude Code" loading="lazy">
+            <img src="images/claude_code.jpeg" alt="Claude Code" loading="lazy" width="48" height="48">
             <h4>Claude Code</h4>
             <p>Build software directly from your terminal</p>
           </a>
@@ -2166,17 +2363,17 @@ Please begin by reviewing the content and images, then present your design plan.
             <p>Deploy websites for free in minutes</p>
           </a>
           <a href="https://cc.hubeiqiao.com" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <img src="images/headshot-optimized.jpg" alt="Joe's Workflow" loading="lazy">
+            <img src="images/headshot-optimized.jpg" alt="Joe's Workflow" loading="lazy" width="48" height="48">
             <h4>cc.hubeiqiao.com</h4>
             <p>My detailed Claude Code workflow guide</p>
           </a>
         </div>
 
         <div class="glass-card fade-in mt-4" style="max-width: 600px; margin: 3rem auto 0;">
-          <h3 class="text-teal mb-3 text-center">The Community</h3>
+          <h3 class="text-secondary mb-3 text-center">The Community</h3>
           <p class="text-muted text-center mb-4">The best learning happens in communities of builders. Find people who are also shipping things. Share what you're working on.</p>
           <a href="https://www.agiventures.ca/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; transition: all 0.2s ease;">
-            <img src="images/agi-ventures-logo.jpg" alt="AGI Ventures Canada" style="width: 48px; height: 48px; border-radius: 8px; object-fit: cover;">
+            <img src="images/agi-ventures-logo.jpg" alt="AGI Ventures Canada" width="48" height="48" style="border-radius: 8px; object-fit: cover;">
             <div>
               <h4 style="font-size: 1rem; margin-bottom: 0.25rem; color: var(--color-cream);">AGI Ventures Canada</h4>
               <p style="font-size: 0.875rem; color: var(--color-muted); margin: 0;">Ottawa's builder community for AI-powered products</p>
@@ -2189,7 +2386,7 @@ Please begin by reviewing the content and images, then present your design plan.
     <!-- Final CTA Section -->
     <section class="final-cta" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; padding: 4rem 1.5rem;">
       <!-- Background glow -->
-      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150%; height: 150%; background: radial-gradient(ellipse at center, rgba(245, 158, 66, 0.08) 0%, transparent 60%); pointer-events: none;"></div>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150%; height: 150%; background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.06) 0%, transparent 60%); pointer-events: none;"></div>
 
       <div class="container" style="position: relative; z-index: 1; text-align: center; max-width: 1000px;">
         <!-- Opening -->
@@ -2207,7 +2404,7 @@ Please begin by reviewing the content and images, then present your design plan.
 
         <!-- THE HERO: It's time to build -->
         <div class="fade-in stagger-3 final-hero-container" style="margin: 3rem 0 4rem; position: relative;">
-          <p class="final-hero-text" style="font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--color-accent) 0%, #ff6b35 50%, var(--color-teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-transform: uppercase;">
+          <p class="final-hero-text" style="font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--color-accent) 0%, #ff6b35 50%, var(--color-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-transform: uppercase;">
             It's Time<br>To Build.
           </p>
         </div>
@@ -2306,14 +2503,19 @@ Please begin by reviewing the content and images, then present your design plan.
       const item = button.closest('.faq-item');
       const wasActive = item.classList.contains('active');
 
-      // Close all others
+      // Close all others and reset aria-expanded
       document.querySelectorAll('.faq-item').forEach(faq => {
         faq.classList.remove('active');
+        const faqButton = faq.querySelector('.faq-question');
+        if (faqButton) {
+          faqButton.setAttribute('aria-expanded', 'false');
+        }
       });
 
       // Toggle clicked item
       if (!wasActive) {
         item.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
       }
     }
 
@@ -2349,6 +2551,21 @@ Please begin by reviewing the content and images, then present your design plan.
         }
       });
     });
+
+    // QR Code Generator (minimal inline implementation)
+    (function() {
+      const qrContainer = document.getElementById('qrcode');
+      if (!qrContainer) return;
+
+      // Pre-generated SVG QR code for cc.hubeiqiao.com/workshop-carleton-202601
+      // This avoids external API dependency
+      const qrSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" width="120" height="120">
+        <rect width="37" height="37" fill="#fff"/>
+        <path d="M1,1h7v7h-7zM9,1h1v1h-1zM11,1h2v1h-2zM14,1h1v2h-1zM16,1h1v1h-1zM18,1h2v1h-2zM21,1h1v1h-1zM24,1h1v1h-1zM26,1h1v2h-1zM29,1h7v7h-7zM2,2v5h5v-5zM30,2v5h5v-5zM3,3h3v3h-3zM10,3h1v1h-1zM12,3h1v2h1v-1h1v2h-1v1h-1v-1h-1v-1h-1v-1h1zM17,3h1v1h-1zM19,3h1v2h-1zM21,3h2v1h-2zM24,3h1v1h-1zM31,3h3v3h-3zM9,4h1v1h-1zM16,4h1v1h-1zM23,4h1v1h-1zM10,5h2v1h-2zM17,5h2v1h-2zM20,5h1v2h-1zM22,5h1v1h-1zM24,5h2v1h-2zM9,6h1v1h-1zM11,6h1v1h-1zM15,6h1v1h-1zM17,6h1v1h-1zM21,6h1v1h-1zM24,6h1v2h-1zM26,6h1v1h-1zM10,7h1v2h-1zM12,7h1v1h-1zM16,7h2v1h-2zM19,7h1v1h-1zM22,7h1v1h-1zM1,9h1v1h-1zM3,9h1v1h-1zM5,9h2v1h-2zM11,9h1v1h-1zM13,9h2v1h-2zM17,9h1v2h1v-1h1v1h1v-1h1v2h-1v1h-2v-1h-1v-1h-1v1h-1v-2h1zM25,9h1v1h1v1h-1v1h-1v-1h-1v-1h1zM28,9h1v1h-1zM31,9h1v1h-1zM33,9h1v1h-1zM35,9h1v1h-1zM2,10h1v1h-1zM4,10h3v1h-3zM8,10h1v1h-1zM12,10h1v2h-1zM14,10h1v1h-1zM23,10h1v2h-1zM28,10h1v1h1v1h-1v1h-2v-1h1zM30,10h1v1h-1zM32,10h1v1h-1zM1,11h1v1h-1zM5,11h1v1h-1zM9,11h2v2h-1v1h1v1h-1v-1h-1v-1h-1v1h-1v-1h1v-1h1zM14,11h2v1h1v1h1v1h-1v1h-1v-1h-1v1h-1v-2h1v-1h-1zM24,11h1v1h-1zM33,11h1v1h-1zM35,11h1v1h-1zM2,12h2v1h-2zM5,12h1v1h-1zM11,12h1v1h-1zM19,12h1v1h-1zM21,12h1v1h-1zM26,12h1v1h-1zM31,12h1v1h-1zM34,12h1v1h1v1h-1v1h-1v-1h-1v-1h1zM1,13h3v1h-3zM6,13h2v1h-2zM13,13h1v1h-1zM20,13h1v2h-1zM22,13h1v1h1v-1h1v2h-1v1h-2v-1h-1v-1h1zM25,13h1v2h1v1h-1v1h-1v-1h-1v-1h1zM30,13h1v1h-1zM32,13h1v1h-1zM2,14h1v1h-1zM4,14h1v1h-1zM7,14h1v1h-1zM9,14h1v3h-1zM11,14h1v1h-1zM14,14h1v1h-1zM16,14h2v1h-2zM19,14h1v2h-1zM28,14h1v1h-1zM30,14h2v1h-2zM35,14h1v2h-1zM1,15h1v2h-1zM3,15h1v1h-1zM5,15h3v1h-3zM10,15h1v1h1v1h-1v1h-1v1h-1v-2h1zM12,15h2v1h-2zM17,15h1v2h-1zM21,15h1v1h-1zM27,15h1v1h-1zM29,15h1v1h-1zM31,15h1v1h-1zM33,15h1v1h-1zM2,16h2v1h-2zM5,16h1v2h-1zM7,16h1v1h-1zM13,16h1v2h-1zM15,16h1v1h-1zM18,16h1v1h-1zM20,16h2v2h-1v1h-1v1h-1v-1h-1v-1h1v-1h1zM23,16h2v1h-2zM26,16h1v1h-1zM28,16h1v1h-1zM30,16h1v1h-1zM3,17h1v1h-1zM6,17h2v2h-2zM11,17h1v3h-1zM14,17h1v1h-1zM16,17h1v2h1v1h1v1h-2v-1h-1zM23,17h1v1h-1zM25,17h1v1h-1zM31,17h1v1h-1zM33,17h2v1h-2zM1,18h1v1h-1zM4,18h1v1h-1zM9,18h1v1h-1zM12,18h1v1h-1zM22,18h1v1h-1zM24,18h1v1h-1zM26,18h2v2h-2zM29,18h1v1h-1zM32,18h1v1h-1zM35,18h1v1h-1zM2,19h1v1h-1zM5,19h1v1h-1zM8,19h1v1h1v1h-2zM13,19h3v1h-3zM21,19h1v1h-1zM23,19h1v2h-1zM30,19h1v1h-1zM33,19h1v1h-1zM1,20h3v1h-3zM6,20h1v2h-1zM10,20h1v1h-1zM12,20h1v1h-1zM14,20h1v1h-1zM17,20h2v2h1v1h-1v1h-2v-1h-1v-1h1v-1h-1v1h-1v-1h1zM24,20h1v1h-1zM26,20h1v1h-1zM31,20h1v1h-1zM34,20h1v2h1v1h-1v1h-1v-1h-1v-1h1zM5,21h1v1h-1zM7,21h2v1h-2zM11,21h1v1h-1zM13,21h1v1h-1zM22,21h1v1h-1zM25,21h1v1h-1zM28,21h2v1h-2zM32,21h1v1h-1zM1,22h1v1h-1zM3,22h1v1h-1zM8,22h1v1h-1zM10,22h1v2h-1zM12,22h1v1h-1zM14,22h1v1h-1zM20,22h2v1h-2zM23,22h2v1h-2zM26,22h1v1h-1zM29,22h1v1h-1zM31,22h1v1h-1zM2,23h1v1h-1zM4,23h3v1h-3zM9,23h1v1h-1zM15,23h1v1h-1zM17,23h1v2h-1zM19,23h1v1h-1zM22,23h1v1h-1zM24,23h1v2h-1zM27,23h1v2h-1zM30,23h1v1h-1zM33,23h1v1h-1zM35,23h1v1h-1zM1,24h1v1h1v1h-2zM5,24h1v1h-1zM8,24h1v1h-1zM11,24h1v2h-1zM13,24h1v1h-1zM18,24h1v1h-1zM20,24h1v1h-1zM22,24h1v1h-1zM26,24h1v1h-1zM28,24h1v1h1v2h-1v-1h-1zM32,24h2v1h-2zM4,25h1v1h-1zM6,25h1v1h-1zM9,25h1v2h-1zM12,25h1v1h-1zM14,25h2v1h-2zM17,25h1v2h1v-1h1v1h1v1h-1v1h-1v-1h-1v1h-2v-1h1v-1h-1v-1h1zM21,25h1v1h-1zM23,25h1v1h-1zM25,25h1v2h-1zM30,25h2v1h-2zM34,25h1v1h-1zM3,26h1v1h-1zM5,26h1v1h-1zM7,26h1v2h-1zM10,26h1v1h-1zM13,26h1v1h-1zM15,26h1v1h-1zM22,26h1v1h-1zM24,26h1v1h-1zM26,26h1v1h1v1h-1v1h1v1h-1v1h1v-1h1v2h-1v1h-1v-1h-1v-1h-1v-1h1v-1h-1v-2h1zM31,26h1v1h-1zM33,26h1v1h-1zM35,26h1v1h-1zM1,27h1v1h-1zM4,27h2v1h-2zM8,27h1v1h-1zM12,27h1v1h-1zM14,27h1v1h-1zM20,27h1v1h-1zM23,27h1v1h-1zM29,27h1v1h-1zM32,27h1v1h-1zM34,27h1v1h-1zM2,28h1v1h-1zM6,28h1v1h-1zM9,28h3v1h-3zM13,28h1v1h-1zM15,28h4v1h-4zM21,28h1v1h-1zM30,28h1v1h1v1h-2zM34,28h1v1h-1zM1,29h7v7h-7zM10,29h1v1h-1zM12,29h1v2h-1zM14,29h1v1h-1zM17,29h1v1h1v1h-1v1h1v1h-1v1h-1v-1h-1v-1h1v-1h-1v-1h1zM21,29h1v1h-1zM24,29h1v1h-1zM29,29h1v1h-1zM33,29h1v1h-1zM35,29h1v1h-1zM2,30v5h5v-5zM9,30h1v1h-1zM13,30h1v1h-1zM19,30h1v1h1v1h-1v1h-1zM22,30h2v2h-2zM25,30h1v1h-1zM32,30h1v1h-1zM34,30h1v2h-1zM3,31h3v3h-3zM10,31h1v1h-1zM14,31h1v1h-1zM24,31h1v1h-1zM28,31h1v1h-1zM30,31h1v1h-1zM9,32h1v1h-1zM11,32h3v1h-3zM15,32h1v2h-1zM21,32h1v1h-1zM23,32h1v1h-1zM25,32h2v1h-2zM29,32h1v1h-1zM31,32h2v1h-2zM35,32h1v1h-1zM10,33h1v2h-1zM12,33h1v1h-1zM14,33h1v2h-1zM17,33h3v1h-3zM24,33h1v1h-1zM26,33h1v1h-1zM28,33h1v2h-1zM30,33h1v1h-1zM33,33h2v1h-2zM9,34h1v1h-1zM11,34h1v1h-1zM16,34h1v1h-1zM18,34h1v1h-1zM20,34h1v1h-1zM22,34h2v1h-2zM25,34h1v1h-1zM29,34h1v1h-1zM31,34h1v1h-1zM34,34h1v1h-1zM12,35h1v1h-1zM15,35h2v1h-2zM19,35h2v1h-2zM23,35h1v1h-1zM26,35h1v1h-1zM32,35h1v1h-1zM35,35h1v1h-1z" fill="#000"/>
+      </svg>`;
+
+      qrContainer.innerHTML = qrSvg;
+    })();
 
   </script>
 </body>
