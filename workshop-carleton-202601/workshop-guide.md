@@ -71,6 +71,8 @@ This is about something more fundamental: **the mindset shift from consumer to b
 
 The rules have changed.
 
+**Everyone is going to have the power to do everything they want, starting from the digital world and then the physical.**
+
 ---
 
 ## 🎬 Live Demo: Watch This Document Transform Into a Website
