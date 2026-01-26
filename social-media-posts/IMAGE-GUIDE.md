@@ -4,6 +4,38 @@ All images are in this folder for easy reference when posting.
 
 ---
 
+## Take Your Own Screenshots
+
+The best screenshots will be ones you take yourself from the live website. Here are the URLs and suggested screenshots:
+
+### Workshop Main Page
+**URL:** https://cc.hubeiqiao.com/workshop-carleton-202601/
+
+Suggested screenshots:
+1. **Hero section** - The "It's Time to Build" hero with your avatar background
+2. **Demo section** - Scroll to #demo to show the "Live Demo" section with stats
+3. **Three Truths** - Scroll to #truths for the inspiring content
+4. **Challenge section** - Scroll to #challenge for the student challenge
+
+### Demo Result Page (AI-Generated Website)
+**URL:** https://cc.hubeiqiao.com/workshop-carleton-202601/demo-result.html
+
+Suggested screenshots:
+1. **Hero** - The AI-generated "It's Time to Build" page
+2. **Full page scroll** - Use browser dev tools or extensions to capture full page
+
+### Main Site
+**URL:** https://cc.hubeiqiao.com/
+
+### Tips for Taking Screenshots:
+- Use browser width ~1920px for desktop social posts
+- Use ~1200px width for LinkedIn carousel
+- Chrome: Right-click > Inspect > Toggle device toolbar > Set custom dimensions
+- Firefox: Tools > Web Developer > Responsive Design Mode
+- Or use extensions like "GoFullPage" or "Fireshot" for full-page captures
+
+---
+
 ## Primary Images (Best for Posts)
 
 ### 1. `demo-website-preview.png`
