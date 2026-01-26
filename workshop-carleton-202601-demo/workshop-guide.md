@@ -45,7 +45,9 @@ Today, I am building my first commercial product — **Joe Speaking** — a real
 
 **I am a living example of what's possible.**
 
-![My Personal Website](images/joe-personal-website.png)
+[![My Personal Website](images/joe-personal-website.png)](https://hubeiqiao.com)
+
+*My personal website — built with AI — [hubeiqiao.com](https://hubeiqiao.com)*
 
 ---
 
@@ -56,6 +58,22 @@ This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — build
 ![AGI Ventures Canada - Think in years. Ship this weekend.](images/agi-ventures-canada.png)
 
 The motto says it all: **"Think in years. Ship this weekend."**
+
+---
+
+## From Idea to Incorporation
+
+After one full month of subscribing to **Claude Max**, I registered my first company:
+
+![Certificate of Incorporation - JUST JOE TECHNOLOGIES INC.](images/just-joe-technologies-certificate.png)
+
+**CEO & Founder** of Just Joe Technologies — a one-person company with **AI troops**!
+
+Alpha test launching in 10 days — powered by Opus, Gemini, and OpenAI APIs.
+
+**It's time to build.**
+
+---
 
 I'm here today to share what I've learned — because I believe anyone can do this.
 
@@ -288,10 +306,15 @@ Before you touch any AI tool, answer these questions:
 
 Write this down. In plain language. Don't worry about technical terms.
 
-Example:
-> "I want a personal website that shows my resume, my projects, and a way for recruiters to contact me. It should look professional and work on phones. I want to update it myself without needing to code."
+**Before talking to AI, prepare a document that includes:**
+- **WHAT** you want to build (purpose, audience, goals)
+- **CONTENT** requirements (what sections, what information)
+- **DESIGN** preferences (style, colors, inspiration references)
+- **TECHNICAL** needs (mobile-responsive, accessibility, etc.)
+- **IMAGES & SCREENSHOTS** you'll provide (logos, photos, examples)
+- **AUTHOR/CONTACT** information to include
 
-This simple paragraph is more valuable than hours of vague experimentation.
+See the [Demo Prompt above](#demo-prompt-what-im-about-to-say-to-ai) for a real example of comprehensive requirements.
 
 ---
 
@@ -368,29 +391,29 @@ After seeing this demo, here's what I suggest you try:
 
 A personal website is one of the most valuable career assets you can have:
 
-**For job seekers:**
-- Stand out from hundreds of identical resumes
-- Show, don't just tell, what you can do
-- Demonstrate initiative and technical comfort
-- Own your professional narrative
+**For Internships & Co-ops:**
+- Stand out when recruiters see 200 identical resumes
+- Show your projects, not just describe them
+- Prove you take initiative beyond coursework
+- One link to share everything about you
 
-**For entrepreneurs:**
-- Establish credibility before you have a track record
-- Test ideas quickly and cheaply
-- Build an audience for future launches
-- Practice the build-ship-iterate cycle
+**For Side Projects & Startups:**
+- Build credibility before you have traction
+- Launch landing pages to test ideas fast
+- Start building an audience while in school
+- Practice build → ship → learn cycles
 
-**For everyone:**
-- Control your online presence
-- Create a central hub for your work
-- Learn the fundamentals of how the internet works
-- Prove to yourself that you can build things
+**For Your Future Career:**
+- Own your online presence, not just LinkedIn
+- Document your journey as you grow
+- Understand how the internet actually works
+- Prove to yourself you can build things
 
 ### Getting Started
 
 You don't need to do this today. But consider this your homework:
 
-1. **Write a simple description** of what you want your website to include
+1. **Write a detailed document** that includes what you want to build and why, all content and sections you need, images or references you can provide, and design preferences. The more detail you give upfront, the better your results. *For reference, check out [my GitHub repo](https://github.com/hubeiqiao/Claude-Code-Workflow-Sharing) — it contains the draft documents I used for today's session and previous workshops.*
 2. **Open an AI assistant** like [Google AI Studio](https://aistudio.google.com/) (free) or [Claude](https://claude.ai/) and paste your description
 3. **Ask AI to help you plan** the structure
 4. **Start building** one section at a time
@@ -495,7 +518,7 @@ Within minutes, your website is live. Real URL. Real website. Accessible to anyo
 - **GitHub** — Store and share your code
 
 ### My Workflow Documentation
-- **cc.hubeiqiao.com** — My detailed [Claude Code](https://claude.com/product/claude-code) workflow guide
+- **Joe's Guide** — My [Claude Code](https://claude.com/product/claude-code) guide (cc.hubeiqiao.com)
 - **@hubeiqiao** — Follow me on X/Twitter for updates
 
 ### The Community
