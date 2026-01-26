@@ -31,7 +31,7 @@ My name is Joe Hu. I am a product person, not a software engineer.
 
 I'm currently a student in Carleton's [Technology Innovation Management (TIM)](https://carleton.ca/tim/) program.
 
-Three months ago, I didn't know what a "pull request" was.
+Three months ago, I wasn't familiar with "pull requests."
 
 Today, I am building my first commercial product — **Joe Speaking** — a real application with:
 - User authentication
