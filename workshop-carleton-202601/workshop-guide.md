@@ -57,6 +57,22 @@ This month, I'm at Ottawa's first **AGI Ventures Canada** Hacker House — build
 
 The motto says it all: **"Think in years. Ship this weekend."**
 
+---
+
+## From Idea to Incorporation
+
+After one full month of subscribing to **Claude Max**, I registered my first company:
+
+![Certificate of Incorporation - JUST JOE TECHNOLOGIES INC.](images/just-joe-technologies-certificate.png)
+
+A one-person company with **AI troops**!
+
+Alpha test launching in 10 days — powered by Opus, Gemini, and OpenAI APIs.
+
+**It's time to build.**
+
+---
+
 I'm here today to share what I've learned — because I believe anyone can do this.
 
 ---
