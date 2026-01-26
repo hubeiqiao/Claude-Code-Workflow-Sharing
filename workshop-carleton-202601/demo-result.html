@@ -1,0 +1,2849 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>It's Time to Build: How Anyone Can Ship Real Products with AI | Carleton University Workshop</title>
+  <meta name="description" content="AI Workshop for Sprott School of Business at Carleton University. Learn how anyone can ship real products with AI tools like Claude Code. January 26, 2026.">
+  <meta name="author" content="Joe Hu">
+  <meta name="keywords" content="AI workshop, Claude Code, build products with AI, Carleton University, Sprott School of Business, vibe engineering, ship products">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cc.hubeiqiao.com/workshop-carleton-202601/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cc.hubeiqiao.com/workshop-carleton-202601/">
+  <meta property="og:title" content="It's Time to Build: How Anyone Can Ship Real Products with AI">
+  <meta property="og:description" content="AI Workshop for Sprott School of Business - Learn how anyone can ship real products with AI tools. From consumer to builder.">
+  <meta property="og:image" content="https://cc.hubeiqiao.com/workshop-carleton-202601/images/workshop_preview_optimized.jpg">
+  <meta property="og:image:width" content="1320">
+  <meta property="og:image:height" content="721">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="Joe Hu">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="https://hubeiqiao.com">
+  <meta property="article:published_time" content="2026-01-26T00:00:00Z">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hubeiqiao">
+  <meta name="twitter:creator" content="@hubeiqiao">
+  <meta name="twitter:title" content="It's Time to Build: AI Workshop | Carleton University">
+  <meta name="twitter:description" content="How Anyone Can Ship Real Products with AI - Workshop for Sprott School of Business">
+  <meta name="twitter:image" content="https://cc.hubeiqiao.com/workshop-carleton-202601/images/workshop_preview_optimized.jpg">
+
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#0f0f1a">
+  <link rel="icon" type="image/jpeg" href="images/headshot-optimized.jpg">
+  <link rel="apple-touch-icon" href="images/headshot-optimized.jpg">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EHCMTFM5J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3EHCMTFM5J');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==================== CSS VARIABLES ==================== */
+    :root {
+      --color-void: #0f0f1a;
+      --color-dark: #161625;
+      --color-surface: #1e1e32;
+      --color-surface-hover: #26263f;
+      --color-border: rgba(255, 255, 255, 0.08);
+      --color-border-accent: rgba(230, 125, 34, 0.3);
+
+      --color-cream: #F4F3EE;
+      --color-muted: #9896A3;
+      --color-dim: #5E5C6B;
+
+      --color-accent: #E67D22;
+      --color-accent-hover: #F5A623;
+      --color-teal: #00d4aa;
+      --color-teal-dim: rgba(0, 212, 170, 0.2);
+
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: Georgia, 'Times New Roman', serif;
+    }
+
+    /* ==================== RESET & BASE ==================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-dark);
+      color: var(--color-cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    ::selection {
+      background: rgba(230, 125, 34, 0.3);
+      color: var(--color-cream);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-void); }
+    ::-webkit-scrollbar-thumb { background: var(--color-surface); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-teal); }
+
+    /* ==================== SKIP LINK ==================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: var(--color-void);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      z-index: 10001;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+      outline: 2px solid var(--color-cream);
+    }
+
+    /* ==================== SCROLL PROGRESS ==================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-teal));
+      z-index: 10000;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* ==================== TYPOGRAPHY ==================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-cream);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--color-muted);
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    strong {
+      color: var(--color-cream);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      background: var(--color-surface);
+      padding: 0.2em 0.5em;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: 1px solid var(--color-border);
+    }
+
+    /* ==================== LAYOUT ==================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .container-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-alt {
+      background: var(--color-void);
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+    }
+
+    /* ==================== NAVIGATION ==================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 26, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(15, 15, 26, 0.95);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--color-cream);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--color-muted);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--color-cream);
+    }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-cream);
+      transition: all 0.3s;
+    }
+
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-dark);
+      padding: 2rem 1.5rem;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active { display: block; }
+
+    .mobile-menu a {
+      display: block;
+      padding: 1rem 0;
+      color: var(--color-muted);
+      font-size: 1.125rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .mobile-menu a:hover { color: var(--color-cream); }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-toggle { display: none; }
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 1.5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 15, 26, 0.5) 0%,
+        rgba(15, 15, 26, 0.7) 50%,
+        var(--color-dark) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(230, 125, 34, 0.1);
+      border: 1px solid rgba(230, 125, 34, 0.3);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #E67D22 25%,
+        #F5A623 50%,
+        #00d4aa 75%,
+        #ffffff 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s linear infinite;
+      filter: drop-shadow(0 4px 30px rgba(230, 125, 34, 0.5));
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 200% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero-subtitle .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: wordReveal 0.5s ease forwards;
+    }
+
+    .hero-subtitle .word:nth-child(1) { animation-delay: 0.5s; }
+    .hero-subtitle .word:nth-child(2) { animation-delay: 0.6s; }
+    .hero-subtitle .word:nth-child(3) { animation-delay: 0.7s; }
+    .hero-subtitle .word:nth-child(4) { animation-delay: 0.8s; }
+    .hero-subtitle .word:nth-child(5) { animation-delay: 0.9s; }
+    .hero-subtitle .word:nth-child(6) { animation-delay: 1.0s; }
+    .hero-subtitle .word:nth-child(7) { animation-delay: 1.1s; }
+    .hero-subtitle .word:nth-child(8) { animation-delay: 1.2s; }
+    .hero-subtitle .word:nth-child(9) { animation-delay: 1.3s; }
+    .hero-subtitle .word:nth-child(10) { animation-delay: 1.4s; }
+    .hero-subtitle .word:nth-child(11) { animation-delay: 1.5s; }
+    .hero-subtitle .word:nth-child(12) { animation-delay: 1.6s; }
+
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+      font-size: 0.875rem;
+      color: var(--color-dim);
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-meta svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-dim);
+      font-size: 0.75rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ==================== QUOTE SECTION ==================== */
+    .quote-section {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 6rem 1.5rem;
+      background: var(--color-void);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote-block {
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      font-style: italic;
+      color: var(--color-cream);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .quote-text p {
+      color: var(--color-cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-author {
+      color: var(--color-muted);
+      font-size: 1rem;
+    }
+
+    .quote-author a {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .quote-follow-up {
+      margin-top: 3rem;
+      font-size: 1.125rem;
+      color: var(--color-muted);
+    }
+
+    /* ==================== CARDS ==================== */
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      border-color: var(--color-border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(230, 125, 34, 0.2);
+    }
+
+    .glass-card {
+      background: rgba(30, 30, 50, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    /* ==================== AUTHOR SECTION ==================== */
+    .author-hero {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .author-hero {
+        grid-template-columns: auto 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+    }
+
+    .author-photo-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--color-accent);
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(230, 125, 34, 0.3), 0 0 0 8px rgba(230, 125, 34, 0.08);
+      margin: 0 auto;
+    }
+
+    .author-photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      .author-photo-circle {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    .author-intro h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .author-intro .subtitle {
+      color: var(--color-accent);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .author-intro { text-align: center; }
+    }
+
+    /* Journey cards */
+    .journey-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .journey-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .journey-card {
+      padding: 1.5rem;
+    }
+
+    .journey-card.past {
+      opacity: 0.7;
+    }
+
+    .journey-card.present {
+      border-color: var(--color-teal);
+      box-shadow: 0 0 30px rgba(0, 212, 170, 0.15);
+    }
+
+    .journey-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .journey-card.past .journey-label { color: var(--color-muted); }
+    .journey-card.present .journey-label { color: var(--color-teal); }
+
+    /* Product card */
+    .product-card {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+
+    .product-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .product-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .product-stats span {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .product-stats span strong {
+      color: var(--color-teal);
+    }
+
+    /* Screenshot with hover */
+    .screenshot-link {
+      display: block;
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .screenshot-link:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(230, 125, 34, 0.15);
+    }
+
+    .screenshot-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .screenshot-caption {
+      font-size: 0.875rem;
+      color: var(--color-dim);
+      font-style: italic;
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    /* ==================== FEATURE BANNER ==================== */
+    .banner-section {
+      padding: 4rem 0;
+    }
+
+    .banner-image {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .banner-motto {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    /* Certificate */
+    .certificate-section {
+      text-align: center;
+    }
+
+    .certificate-image {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .certificate-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .certificate-subtitle {
+      color: var(--color-muted);
+      margin-bottom: 1rem;
+    }
+
+    .highlight-teal {
+      color: var(--color-teal);
+    }
+
+    /* ==================== WORKSHOP ABOUT ==================== */
+    .about-statements p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-statements .highlight {
+      color: var(--color-cream);
+      font-weight: 600;
+    }
+
+    .about-statements .gradient-highlight {
+      background: linear-gradient(90deg, var(--color-accent), var(--color-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    /* ==================== DEMO SECTION ==================== */
+    .demo-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .timer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: rgba(0, 212, 170, 0.1);
+      border: 1px solid rgba(0, 212, 170, 0.3);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-teal);
+    }
+
+    .demo-steps {
+      counter-reset: demo-step;
+      margin: 2rem 0;
+    }
+
+    .demo-step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .demo-step::before {
+      counter-increment: demo-step;
+      content: counter(demo-step);
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-teal));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--color-void);
+    }
+
+    .demo-step-content {
+      padding-top: 0.25rem;
+    }
+
+    .demo-step-emoji {
+      margin-right: 0.5rem;
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .code-header {
+      background: linear-gradient(180deg, #1e232a 0%, #161b22 100%);
+      border-bottom: 1px solid #30363d;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .code-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .code-copy {
+      background: transparent;
+      border: none;
+      color: var(--color-muted);
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+
+    .code-copy:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--color-cream);
+    }
+
+    .code-copy.copied {
+      color: var(--color-teal);
+    }
+
+    .code-body {
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .code-body pre {
+      margin: 0;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .code-body code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--color-cream);
+      background: transparent;
+      border: none;
+      padding: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Watch for list */
+    .watch-list {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .watch-list li {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .watch-list li::before {
+      content: '✓';
+      color: var(--color-teal);
+      font-weight: bold;
+    }
+
+    .watch-list strong {
+      color: var(--color-cream);
+    }
+
+    /* ==================== DEMO RESULT CARD ==================== */
+    .demo-result-card {
+      background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(230, 125, 34, 0.1) 100%);
+      border: 2px solid var(--color-teal);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-result-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-teal), var(--color-accent));
+    }
+
+    .demo-result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 212, 170, 0.2);
+      border: 1px solid var(--color-teal);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-result-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--color-cream), var(--color-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .demo-result-text {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .demo-result-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    @media (min-width: 600px) {
+      .demo-result-stats {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+      }
+    }
+
+    .demo-stat {
+      text-align: center;
+    }
+
+    .demo-stat-number {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-teal);
+      line-height: 1.2;
+    }
+
+    .demo-stat-label {
+      font-size: 0.75rem;
+      color: var(--color-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-result-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--color-cream);
+      transition: all 0.2s;
+    }
+
+    .demo-result-link:hover {
+      background: var(--color-surface-hover);
+      border-color: var(--color-teal);
+      color: var(--color-teal);
+    }
+
+    /* Browser Mockup */
+    .browser-mockup {
+      background: var(--color-void);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+
+    .browser-mockup-header {
+      background: linear-gradient(180deg, #2a2a3a 0%, #1e1e2e 100%);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .browser-dots .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .browser-dots .dot.red { background: #ff5f57; }
+    .browser-dots .dot.yellow { background: #febc2e; }
+    .browser-dots .dot.green { background: #28c840; }
+
+    .browser-url-bar {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .browser-url-bar svg {
+      color: var(--color-teal);
+      flex-shrink: 0;
+    }
+
+    .browser-mockup-content {
+      line-height: 0;
+    }
+
+    .browser-mockup-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ==================== TRUTH CARDS ==================== */
+    .truth-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .truth-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .truth-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
+    .truth-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .truth-card h3 {
+      margin-bottom: 1rem;
+    }
+
+    /* ==================== COMPARISON ==================== */
+    .comparison-grid {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .comparison-card {
+      padding: 2rem;
+    }
+
+    .comparison-card.old {
+      opacity: 0.7;
+      border-color: var(--color-dim);
+    }
+
+    .comparison-card.new {
+      border-color: var(--color-teal);
+      box-shadow: 0 0 30px rgba(0, 212, 170, 0.1);
+    }
+
+    .comparison-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .comparison-card.old .comparison-label { color: var(--color-dim); }
+    .comparison-card.new .comparison-label { color: var(--color-teal); }
+
+    .comparison-list {
+      list-style: none;
+    }
+
+    .comparison-list li {
+      padding: 0.5rem 0;
+      color: var(--color-muted);
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .comparison-list li::before {
+      content: '→';
+      color: var(--color-dim);
+      flex-shrink: 0;
+    }
+
+    .comparison-card.new .comparison-list li::before {
+      color: var(--color-teal);
+    }
+
+    /* ==================== BUILDING SECTION ==================== */
+    .tool-intro {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .tool-intro {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .tool-screenshot {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .tool-screenshot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .capability-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .capability-list li {
+      padding: 0.75rem 0;
+      color: var(--color-muted);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .capability-icon {
+      font-size: 1.25rem;
+      width: 1.5rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .mental-model {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .mental-model h4 {
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    /* ==================== PROCESS STEPS ==================== */
+    .process-step {
+      margin-bottom: 4rem;
+    }
+
+    .process-step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-teal));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-void);
+      flex-shrink: 0;
+    }
+
+    .process-checklist {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding-left: 0;
+    }
+
+    .process-checklist li {
+      padding: 0.5rem 0;
+      color: var(--color-muted);
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .process-checklist li::before {
+      content: '○';
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .process-image {
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .process-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ==================== CHALLENGE SECTION ==================== */
+    .benefit-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .benefit-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .benefit-card {
+      padding: 2rem;
+    }
+
+    .benefit-card h4 {
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+
+    .benefit-card ul {
+      list-style: none;
+    }
+
+    .benefit-card li {
+      padding: 0.4rem 0;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    .benefit-card li::before {
+      content: '• ';
+      color: var(--color-teal);
+    }
+
+    /* Getting started */
+    .getting-started {
+      counter-reset: start-step;
+      margin: 2rem 0;
+    }
+
+    .start-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .start-step::before {
+      counter-increment: start-step;
+      content: counter(start-step);
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--color-surface);
+      border: 2px solid var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--color-accent);
+    }
+
+    .start-step-content h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .start-step-content p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* ==================== FAQ ACCORDION ==================== */
+    .faq-list {
+      margin: 2rem 0;
+    }
+
+    .faq-item {
+      border-left: 3px solid var(--color-surface);
+      margin-bottom: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item.active {
+      border-left-color: var(--color-accent);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: var(--color-surface);
+      border: none;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: var(--color-surface-hover);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background: rgba(30, 30, 50, 0.5);
+    }
+
+    .faq-answer-inner {
+      padding: 1.5rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    /* ==================== MINDSET SECTION ==================== */
+    .mindset-comparison {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .mindset-comparison {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .mindset-card {
+      padding: 2rem;
+    }
+
+    .mindset-card.consumer {
+      opacity: 0.6;
+      filter: grayscale(50%);
+    }
+
+    .mindset-card.builder {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 40px rgba(230, 125, 34, 0.15);
+    }
+
+    .mindset-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .mindset-card.consumer .mindset-label { color: var(--color-dim); }
+    .mindset-card.builder .mindset-label { color: var(--color-accent); }
+
+    .mindset-list {
+      list-style: none;
+    }
+
+    .mindset-list li {
+      padding: 0.6rem 0;
+      color: var(--color-muted);
+    }
+
+    .mindset-card.builder .mindset-list li {
+      color: var(--color-cream);
+    }
+
+    /* ==================== DEPLOYMENT PIPELINE ==================== */
+    .pipeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin: 2rem 0;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-surface);
+      border-radius: 8px;
+    }
+
+    .pipeline-arrow {
+      color: var(--color-accent);
+      font-size: 1.5rem;
+    }
+
+    /* ==================== ACTION TIMELINE ==================== */
+    .action-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .action-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .action-card {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .action-time {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .action-card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ==================== RESOURCES ==================== */
+    .resources-header {
+      margin-bottom: 2rem;
+    }
+
+    .resources-header img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .resource-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .resource-card {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .resource-card p {
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .resource-card a {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .community-card {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .community-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* ==================== FINAL SECTION ==================== */
+    .final-section {
+      text-align: center;
+      padding: 100px 1.5rem;
+    }
+
+    .final-statement {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--color-cream);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .final-cta {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .final-year {
+      font-family: var(--font-mono);
+      color: var(--color-dim);
+      margin-top: 2rem;
+    }
+
+    /* ==================== QA SECTION ==================== */
+    .qa-section {
+      text-align: center;
+      padding: 80px 1.5rem;
+      background: var(--color-void);
+    }
+
+    .qa-questions {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .qa-questions p {
+      color: var(--color-cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-muted);
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer p {
+      font-size: 0.875rem;
+      color: var(--color-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer a {
+      color: var(--color-muted);
+    }
+
+    .footer a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ==================== ANIMATIONS ==================== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-subtitle .word {
+        opacity: 1;
+        transform: none;
+      }
+      .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://hubeiqiao.com" class="nav-logo" aria-label="Joe Hu's website">
+        <img src="images/headshot-optimized.jpg" alt="Joe Hu" width="36" height="36" loading="eager">
+        <span>Joe Hu</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#truths">Key Truths</a>
+        <a href="#process">Process</a>
+        <a href="#challenge">Your Challenge</a>
+        <a href="#resources">Resources</a>
+        <a href="../">Main Site</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#truths">Key Truths</a>
+    <a href="#process">Process</a>
+    <a href="#challenge">Your Challenge</a>
+    <a href="#resources">Resources</a>
+    <a href="../">Main Site</a>
+  </div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg">
+        <img src="images/01-vibe-engineering-hero.png" alt="" width="1920" height="1080" loading="eager">
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">AI Workshop</div>
+        <h1 id="hero-title" class="hero-title">
+          <span class="gradient-text">It's Time to Build</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="word">How</span>
+          <span class="word">Anyone</span>
+          <span class="word">Can</span>
+          <span class="word">Ship</span>
+          <span class="word">Real</span>
+          <span class="word">Products</span>
+          <span class="word">with</span>
+          <span class="word">AI</span>
+        </p>
+        <div class="hero-meta">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            January 26, 2026
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Carleton University
+          </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Sprott School of Business
+          </span>
+        </div>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+    </section>
+
+    <!-- Opening Quote Section -->
+    <section class="quote-section" aria-labelledby="quote-heading">
+      <div class="quote-block animate-on-scroll">
+        <h2 id="quote-heading" class="sr-only">The New Reality</h2>
+        <blockquote class="quote-text">
+          <p>"There are no limits anymore. Anyone can do anything. The only limiting factors are agency and ambition.</p>
+          <p>Never has a college degree, work experience, network, even the accumulation of knowledge been worth less.</p>
+          <p>You can just ship things."</p>
+        </blockquote>
+        <p class="quote-author">— <a href="https://x.com/rauchg/status/1999898954427961611" target="_blank" rel="noopener">@RAUCHG</a>, CEO of Vercel</p>
+        <p class="quote-follow-up">This is not a prediction. This is happening right now.</p>
+      </div>
+    </section>
+
+    <!-- Who Am I Section -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="author-hero animate-on-scroll">
+          <div class="author-photo">
+            <div class="author-photo-circle">
+              <img src="images/headshot-optimized.jpg" alt="Joe Hu" width="180" height="180" loading="lazy">
+            </div>
+          </div>
+          <div class="author-intro">
+            <h2 id="about-heading">Who Am I?</h2>
+            <p class="subtitle">Product Person, Not a Software Engineer</p>
+            <p>My name is <strong>Joe Hu</strong>. I'm currently a student in Carleton's <a href="https://carleton.ca/tim/" target="_blank" rel="noopener">Technology Innovation Management (TIM)</a> program.</p>
+          </div>
+        </div>
+
+        <div class="journey-grid">
+          <div class="card journey-card past animate-on-scroll stagger-1">
+            <div class="journey-label">3 Months Ago</div>
+            <p>I wasn't familiar with "pull requests."</p>
+          </div>
+          <div class="card journey-card present animate-on-scroll stagger-2">
+            <div class="journey-label">Today</div>
+            <p>Building my first commercial product — <strong>Joe Speaking</strong> — a real application with user authentication, payment processing, cloud infrastructure, and production deployment.</p>
+          </div>
+        </div>
+
+        <div class="product-card card animate-on-scroll">
+          <img src="images/joe_speaking_icon.webp" alt="Joe Speaking app icon" width="80" height="80" loading="lazy">
+          <div>
+            <h3>Joe Speaking</h3>
+            <p style="margin-bottom: 0.5rem;">Even though I haven't officially released the product yet, I've already landed <strong>3 customers</strong> from Australia, Japan, and China.</p>
+            <div class="product-stats">
+              <span><strong>3</strong> Pre-launch customers</span>
+              <span><strong>3</strong> Countries</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="animate-on-scroll" style="font-size: 1.25rem; text-align: center; margin: 2rem 0;"><strong>I am a living example of what's possible.</strong></p>
+
+        <a href="https://hubeiqiao.com" target="_blank" rel="noopener" class="screenshot-link animate-on-scroll">
+          <img src="images/joe-personal-website.png" alt="Joe Hu's personal website" width="1200" height="675" loading="lazy">
+        </a>
+        <p class="screenshot-caption">My personal website — built with AI — <a href="https://hubeiqiao.com" target="_blank" rel="noopener">hubeiqiao.com</a></p>
+      </div>
+    </section>
+
+    <!-- AGI Ventures Section -->
+    <section class="section section-alt banner-section" aria-labelledby="agi-heading">
+      <div class="container">
+        <h2 id="agi-heading" class="animate-on-scroll" style="text-align: center;">AGI Ventures Canada Hacker House</h2>
+        <p class="animate-on-scroll" style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">This month, I'm at Ottawa's first <strong>AGI Ventures Canada</strong> Hacker House — building my first commercialized product alongside high-agency people who believe in shipping fast.</p>
+
+        <div class="banner-image animate-on-scroll">
+          <img src="images/agi-ventures-canada.png" alt="AGI Ventures Canada - Think in years. Ship this weekend." width="700" height="394" loading="lazy">
+        </div>
+
+        <p class="banner-motto animate-on-scroll">"Think in years. Ship this weekend."</p>
+      </div>
+    </section>
+
+    <!-- From Idea to Incorporation -->
+    <section class="section certificate-section" aria-labelledby="incorporation-heading">
+      <div class="container-narrow">
+        <h2 id="incorporation-heading" class="animate-on-scroll">From Idea to Incorporation</h2>
+        <p class="animate-on-scroll">After one full month of subscribing to <strong>Claude Max</strong>, I registered my first company:</p>
+
+        <img src="images/just-joe-technologies-certificate.png" alt="Certificate of Incorporation - JUST JOE TECHNOLOGIES INC." class="certificate-image animate-on-scroll" width="800" height="600" loading="lazy">
+
+        <h3 class="certificate-title animate-on-scroll">CEO & Founder of Just Joe Technologies</h3>
+        <p class="certificate-subtitle animate-on-scroll">A one-person company with <span class="highlight-teal">AI troops</span>!</p>
+        <p class="animate-on-scroll">Alpha test launching in 10 days — powered by Opus, Gemini, and OpenAI APIs.</p>
+        <p class="animate-on-scroll" style="font-size: 1.5rem; font-weight: 700; color: var(--color-accent); margin-top: 2rem;">It's time to build.</p>
+      </div>
+    </section>
+
+    <!-- Workshop Purpose -->
+    <section class="section section-alt" aria-labelledby="workshop-heading">
+      <div class="container-narrow">
+        <p class="animate-on-scroll" style="text-align: center; font-size: 1.125rem; margin-bottom: 3rem;">I'm here today to share what I've learned — because I believe anyone can do this.</p>
+
+        <h2 id="workshop-heading" class="animate-on-scroll" style="text-align: center;">What This Workshop Is About</h2>
+
+        <div class="glass-card about-statements animate-on-scroll">
+          <p>I'm <span class="highlight">not</span> here to teach you to code.</p>
+          <p>I'm here to show you that <span class="highlight">you don't need to know how to code</span> to build real products.</p>
+          <p>This is about something more fundamental: <span class="gradient-highlight">the mindset shift from consumer to builder.</span></p>
+          <p style="margin-bottom: 0;">The rules have changed. <strong>Everyone is going to have the power to do everything they want, starting from the digital world and then the physical.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="section" aria-labelledby="demo-heading">
+      <div class="container">
+        <div class="demo-header">
+          <h2 id="demo-heading" style="margin-bottom: 0;">Live Demo: Watch This Document Transform Into a Website</h2>
+          <span class="timer-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            ~15 min
+          </span>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+          <p><strong>Right now, you're looking at plain text.</strong></p>
+          <p>This markdown document — simple formatting, no colors, no layout, no interactivity — is about to become something completely different.</p>
+          <p><strong>The website you're viewing right now? We built it in ~15 minutes using this exact process.</strong></p>
+        </div>
+
+        <h3 class="animate-on-scroll" style="margin-top: 3rem;">In the next 15 minutes, you will witness:</h3>
+
+        <div class="demo-steps animate-on-scroll">
+          <div class="demo-step">
+            <div class="demo-step-content"><span class="demo-step-emoji">📄</span><strong>This exact raw content</strong> taken as input</div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step-content"><span class="demo-step-emoji">🎨</span><strong>AI designing</strong> a complete, beautiful website</div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step-content"><span class="demo-step-emoji">⚡</span><strong>Code being written</strong> in real-time</div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step-content"><span class="demo-step-emoji">🌐</span><strong>A live deployment</strong> to the actual internet</div>
+          </div>
+          <div class="demo-step">
+            <div class="demo-step-content"><span class="demo-step-emoji">📱</span><strong>Mobile-responsive design</strong> that works everywhere</div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll">
+          <h4>Why start with this?</h4>
+          <p>Because seeing is believing. I could tell you that anyone can build products with AI. But <em>showing</em> you — in real-time — is infinitely more powerful.</p>
+          <p>By the end of this demo, you'll understand:</p>
+          <ul class="watch-list">
+            <li>What AI can actually do</li>
+            <li>How fast modern development can be</li>
+            <li>Why the old barriers no longer exist</li>
+          </ul>
+        </div>
+
+        <div class="tool-intro animate-on-scroll">
+          <div>
+            <h3>The Tool: Claude Code</h3>
+            <p>This is <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Claude Code</a> — an AI coding assistant that runs in your terminal. You type what you want in plain English, and it writes the code, creates files, and runs commands for you.</p>
+          </div>
+          <div class="tool-screenshot">
+            <img src="images/claude-code-interface.png" alt="Claude Code Interface" width="600" height="400" loading="lazy">
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll" style="margin-top: 3rem;">Demo Prompt (What I'm About to Say to AI)</h3>
+        <p class="animate-on-scroll"><em>This is the exact prompt I'll use — notice how it's written in plain English, not code:</em></p>
+
+        <div class="code-block animate-on-scroll">
+          <div class="code-header">
+            <span class="code-title">demo-prompt.txt</span>
+            <button class="code-copy" data-target="demo-prompt" aria-label="Copy to clipboard">Copy</button>
+          </div>
+          <div class="code-body">
+            <pre><code id="demo-prompt">First, read and understand everything in the "workshop-carleton-202601" folder,
+including this workshop guide and all images.
+
+Then, use /frontend-design — think like a professional UI/UX designer
+with expertise in modern web aesthetics, typography, and visual hierarchy.
+
+I want you to transform this document into a stunning, beautiful, and aesthetic
+website for people who couldn't attend this workshop to experience the content.
+
+CONTENT REQUIREMENTS:
+- Use this workshop guide (workshop-guide.md) as the complete source
+- DO NOT compact or summarize any content — every section must appear on the website
+- Preserve all images and integrate them beautifully into the design
+
+DESIGN REQUIREMENTS:
+- Create a modern, professional design that reflects innovation and accessibility
+- Use the hero image (01-vibe-engineering-hero.png) prominently
+- Ensure excellent typography and visual hierarchy
+- Add smooth scrolling and subtle animations where appropriate
+- Design must be mobile-responsive and work beautifully on all screen sizes
+
+TECHNICAL REQUIREMENTS:
+- Add proper metadata for social media sharing (Open Graph, Twitter cards)
+- Set up favicon using the author's avatar
+- Optimize for fast loading
+- Ensure accessibility standards are met
+
+AUTHOR INFORMATION TO INCLUDE:
+- Website: hubeiqiao.com
+- X/Twitter: @hubeiqiao
+- LinkedIn: linkedin.com/in/hubeiqiao
+
+INTEGRATION:
+- Find an appropriate place on the main page (index.html) to add a link or section
+  for this workshop/sharing session so visitors can discover it
+
+PROCESS:
+1. First, review all available images in the images folder
+2. Create a design plan before coding
+3. If anything is unclear, ask me questions using "ask-questions-if-underspecified"
+4. After building, use browser preview to verify the design
+5. Check that all images display correctly and are appropriately sized
+6. Verify mobile responsiveness
+
+Please begin by reviewing the content and images, then present your design plan.</code></pre>
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll">Review Prompt (After Building)</h3>
+        <p class="animate-on-scroll"><em>After the website is built, use this prompt to review and refine:</em></p>
+
+        <div class="code-block animate-on-scroll">
+          <div class="code-header">
+            <span class="code-title">review-prompt.txt</span>
+            <button class="code-copy" data-target="review-prompt" aria-label="Copy to clipboard">Copy</button>
+          </div>
+          <div class="code-body">
+            <pre><code id="review-prompt">Please review the website design using /agent-browser and /frontend-design skills. Ensure the image sizes and colors look appropriate, and confirm the site works well on small screens.</code></pre>
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll">What to Watch For During the Demo</h3>
+        <p class="animate-on-scroll">As AI works, notice:</p>
+        <ul class="watch-list animate-on-scroll">
+          <li><strong>The conversation</strong> — I'm directing, not coding</li>
+          <li><strong>The iterations</strong> — Things don't have to be perfect first try</li>
+          <li><strong>The speed</strong> — What used to take days happens in minutes</li>
+          <li><strong>The questions</strong> — AI asks for clarification when needed</li>
+          <li><strong>The result</strong> — A real, deployed website</li>
+        </ul>
+
+        <!-- Demo Result Card -->
+        <div class="demo-result animate-on-scroll" style="margin-top: 3rem;">
+          <div class="demo-result-card">
+            <div class="demo-result-badge">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Demo Complete
+            </div>
+            <h3 class="demo-result-title">The Result? You're Looking at It.</h3>
+            <p class="demo-result-text">This entire website — the design, animations, responsive layout, all 2,700+ lines of code — was built using the exact process described above.</p>
+
+            <!-- Browser Mockup Preview -->
+            <div class="browser-mockup">
+              <div class="browser-mockup-header">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-url-bar">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  cc.hubeiqiao.com/workshop-carleton-202601
+                </div>
+              </div>
+              <div class="browser-mockup-content">
+                <img src="images/demo-website-preview.png" alt="Workshop website built with AI in ~15 minutes" width="1280" height="800" loading="lazy">
+              </div>
+            </div>
+
+            <div class="demo-result-stats">
+              <div class="demo-stat">
+                <span class="demo-stat-number">~15</span>
+                <span class="demo-stat-label">Minutes</span>
+              </div>
+              <div class="demo-stat">
+                <span class="demo-stat-number">2,700+</span>
+                <span class="demo-stat-label">Lines of Code</span>
+              </div>
+              <div class="demo-stat">
+                <span class="demo-stat-number">19</span>
+                <span class="demo-stat-label">Sections</span>
+              </div>
+              <div class="demo-stat">
+                <span class="demo-stat-number">0</span>
+                <span class="demo-stat-label">Lines Written by Hand</span>
+              </div>
+            </div>
+            <a href="https://cc.hubeiqiao.com/workshop-carleton-202601/" class="demo-result-link" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              View Live Site
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Truths Section -->
+    <section id="truths" class="section section-alt" aria-labelledby="truths-heading">
+      <div class="container">
+        <h2 id="truths-heading" class="animate-on-scroll" style="text-align: center;">Three Truths for the AI Era</h2>
+
+        <div class="truth-grid">
+          <div class="card truth-card animate-on-scroll stagger-1">
+            <div class="truth-number">1</div>
+            <h3>You Can Now Build an Entire Product on Your Own</h3>
+            <p>A single person with the right tools can now accomplish what once required a team of 10. The barrier to entry has collapsed.</p>
+          </div>
+          <div class="card truth-card animate-on-scroll stagger-2">
+            <div class="truth-number">2</div>
+            <h3>AI Is Powerful, But You Still Need Clear Planning</h3>
+            <p>The bottleneck is not AI's capability. It's your ability to articulate what you want. AI amplifies your clarity.</p>
+          </div>
+          <div class="card truth-card animate-on-scroll stagger-3">
+            <div class="truth-number">3</div>
+            <h3>The Most Effective Way to Learn Is by Doing</h3>
+            <p>You learn by building. You learn by shipping. You learn by doing. The first step is always the hardest.</p>
+          </div>
+        </div>
+
+        <!-- Truth #1 Detail -->
+        <div class="comparison-grid" style="margin-top: 4rem;">
+          <div class="card comparison-card old animate-on-scroll">
+            <div class="comparison-label">The Old Way</div>
+            <ul class="comparison-list">
+              <li>Have an idea</li>
+              <li>Find a technical co-founder</li>
+              <li>Raise money</li>
+              <li>Hire engineers</li>
+              <li>Wait months or years</li>
+            </ul>
+          </div>
+          <div class="card comparison-card new animate-on-scroll">
+            <div class="comparison-label">The New Way</div>
+            <ul class="comparison-list">
+              <li>Have an idea</li>
+              <li>Open your laptop</li>
+              <li>Build it yourself</li>
+              <li>Ship it this week</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Truth #2 Detail -->
+        <div class="animate-on-scroll" style="margin-top: 4rem;">
+          <h3>Write First, Then Use AI</h3>
+          <p>Here's what most people get wrong: They think AI is magic. They type vague requests and expect perfect results. This doesn't work.</p>
+          <div class="process-image">
+            <img src="images/05-raw-draft-statistics.png" alt="Write first, then use AI" width="800" height="450" loading="lazy">
+          </div>
+          <p>What works: Write down what you want BEFORE you talk to AI. Be specific about your requirements. Break big tasks into smaller pieces. Document your decisions.</p>
+          <p><strong>If your thinking is fuzzy, your results will be fuzzy.</strong></p>
+        </div>
+
+        <!-- Truth #3 Detail -->
+        <div class="animate-on-scroll" style="margin-top: 4rem;">
+          <h3>Learn by Doing</h3>
+          <p>You cannot learn to swim by reading a book about swimming. You cannot learn to build products by watching tutorials forever.</p>
+          <p>Every successful builder I know started by making something — often something imperfect, often something small.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Does Building Look Like -->
+    <section class="section" aria-labelledby="building-heading">
+      <div class="container">
+        <h2 id="building-heading" class="animate-on-scroll">What Does "Building" Actually Look Like?</h2>
+        <p class="animate-on-scroll">Let's demystify this.</p>
+
+        <h3 class="animate-on-scroll">What AI Can Help You Create</h3>
+        <ul class="capability-list animate-on-scroll">
+          <li><span class="capability-icon">🌐</span><strong>Websites:</strong> Personal portfolios, landing pages, full web applications</li>
+          <li><span class="capability-icon">📄</span><strong>Documents:</strong> Reports, presentations, professional materials</li>
+          <li><span class="capability-icon">🔧</span><strong>Tools:</strong> Automation scripts, data analysis, custom utilities</li>
+          <li><span class="capability-icon">📦</span><strong>Products:</strong> Real applications that solve real problems</li>
+        </ul>
+
+        <div class="mental-model animate-on-scroll">
+          <h4>A Simple Mental Model</h4>
+          <p>Think of AI as an extremely capable assistant who:</p>
+          <ul class="capability-list" style="margin-bottom: 1.5rem;">
+            <li><span class="capability-icon">💻</span>Can write code in any programming language</li>
+            <li><span class="capability-icon">🔍</span>Can search the internet for information</li>
+            <li><span class="capability-icon">📂</span>Can read and modify files on your computer</li>
+            <li><span class="capability-icon">⚙️</span>Can run commands and see results</li>
+            <li><span class="capability-icon">🕐</span>Works 24/7 without getting tired</li>
+          </ul>
+          <p>But this assistant needs you to:</p>
+          <ul class="capability-list" style="margin-bottom: 0;">
+            <li><span class="capability-icon">🎯</span>Tell them what to build</li>
+            <li><span class="capability-icon">🤔</span>Make decisions when there are choices</li>
+            <li><span class="capability-icon">✅</span>Test if the result matches what you wanted</li>
+            <li><span class="capability-icon">🧭</span>Guide them when something goes wrong</li>
+          </ul>
+        </div>
+
+        <p class="animate-on-scroll" style="font-size: 1.25rem; text-align: center; margin-top: 2rem;"><strong>You are the director. AI is your production team.</strong></p>
+      </div>
+    </section>
+
+    <!-- The Process Section -->
+    <section id="process" class="section section-alt" aria-labelledby="process-heading">
+      <div class="container">
+        <h2 id="process-heading" class="animate-on-scroll">The Process: From Idea to Reality</h2>
+
+        <!-- Step 1 -->
+        <div class="process-step animate-on-scroll">
+          <div class="process-step-header">
+            <div class="step-number">1</div>
+            <h3>Start with What You Want (Not with AI)</h3>
+          </div>
+          <p>Before you touch any AI tool, answer these questions:</p>
+          <ol class="process-checklist">
+            <li><strong>What problem am I solving?</strong></li>
+            <li><strong>Who is this for?</strong></li>
+            <li><strong>What does "done" look like?</strong></li>
+            <li><strong>What are the must-have features?</strong></li>
+          </ol>
+          <p>Write this down. In plain language. Don't worry about technical terms.</p>
+          <p><strong>Before talking to AI, prepare a document that includes:</strong></p>
+          <ul class="process-checklist">
+            <li><strong>WHAT</strong> you want to build (purpose, audience, goals)</li>
+            <li><strong>CONTENT</strong> requirements (what sections, what information)</li>
+            <li><strong>DESIGN</strong> preferences (style, colors, inspiration references)</li>
+            <li><strong>TECHNICAL</strong> needs (mobile-responsive, accessibility, etc.)</li>
+            <li><strong>IMAGES & SCREENSHOTS</strong> you'll provide (logos, photos, examples)</li>
+            <li><strong>AUTHOR/CONTACT</strong> information to include</li>
+          </ul>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step animate-on-scroll">
+          <div class="process-step-header">
+            <div class="step-number">2</div>
+            <h3>Let AI Help You Plan</h3>
+          </div>
+          <p>Once you know what you want, AI can help you figure out how to build it.</p>
+          <p>The key technique: <strong>Ask AI to ask you questions.</strong></p>
+          <p>When AI asks clarifying questions:</p>
+          <ul class="process-checklist">
+            <li>Answer honestly (even "I don't know" is fine)</li>
+            <li>Let AI suggest options when you're unsure</li>
+            <li>Make decisions, even if they feel arbitrary</li>
+          </ul>
+          <p>Remember: A decision made is better than endless deliberation.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step animate-on-scroll">
+          <div class="process-step-header">
+            <div class="step-number">3</div>
+            <h3>Build Incrementally</h3>
+          </div>
+          <p>Don't try to build everything at once.</p>
+          <p><strong>The Golden Rule: One piece at a time.</strong></p>
+
+          <div class="comparison-grid">
+            <div class="card comparison-card old">
+              <div class="comparison-label">Bad approach</div>
+              <p style="font-style: italic; margin: 0;">"Build me an entire e-commerce website with user accounts, shopping cart, payment, inventory management, and admin dashboard."</p>
+            </div>
+            <div class="card comparison-card new">
+              <div class="comparison-label">Good approach</div>
+              <p style="font-style: italic; margin: 0;">"First, let's create a simple page that displays three products with images and prices."</p>
+            </div>
+          </div>
+          <p>Start small. Verify it works. Add the next piece. Repeat.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step animate-on-scroll">
+          <div class="process-step-header">
+            <div class="step-number">4</div>
+            <h3>Test With Your Own Eyes</h3>
+          </div>
+          <p>AI can write code. AI can even test code. But AI cannot see your screen through your eyes.</p>
+          <p><strong>Manual testing is essential.</strong></p>
+          <p>Ask yourself:</p>
+          <ul class="process-checklist">
+            <li>Does this look right?</li>
+            <li>Does this feel right?</li>
+            <li>Would I use this myself?</li>
+            <li>Would I show this to someone else?</li>
+          </ul>
+          <p>Your judgment matters. Don't skip this step.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="process-step animate-on-scroll">
+          <div class="process-step-header">
+            <div class="step-number">5</div>
+            <h3>Iterate Based on Reality</h3>
+          </div>
+          <p>Things will go wrong. This is normal.</p>
+          <div class="process-image">
+            <img src="images/02-pushback-investigate-deeper.png" alt="AI responds to pushback" width="800" height="450" loading="lazy">
+          </div>
+          <p>When something breaks:</p>
+          <ol class="process-checklist">
+            <li><strong>Describe what you expected</strong></li>
+            <li><strong>Describe what actually happened</strong></li>
+            <li><strong>Share any error messages</strong></li>
+            <li><strong>Let AI investigate</strong></li>
+          </ol>
+          <p>You don't need to understand the technical details. You just need to be a good communicator about what you observe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Challenge Section -->
+    <section id="challenge" class="section" aria-labelledby="challenge-heading">
+      <div class="container">
+        <h2 id="challenge-heading" class="animate-on-scroll">Your Challenge: Build Your Own Personal Website</h2>
+        <p class="animate-on-scroll">After seeing this demo, here's what I suggest you try:</p>
+
+        <h3 class="animate-on-scroll">Why a Personal Website?</h3>
+        <p class="animate-on-scroll">A personal website is one of the most valuable career assets you can have:</p>
+
+        <div class="benefit-grid">
+          <div class="card benefit-card animate-on-scroll stagger-1">
+            <h4>For Internships & Co-ops</h4>
+            <ul>
+              <li>Stand out when recruiters see 200 identical resumes</li>
+              <li>Show your projects, not just describe them</li>
+              <li>Prove you take initiative beyond coursework</li>
+              <li>One link to share everything about you</li>
+            </ul>
+          </div>
+          <div class="card benefit-card animate-on-scroll stagger-2">
+            <h4>For Side Projects & Startups</h4>
+            <ul>
+              <li>Build credibility before you have traction</li>
+              <li>Launch landing pages to test ideas fast</li>
+              <li>Start building an audience while in school</li>
+              <li>Practice build → ship → learn cycles</li>
+            </ul>
+          </div>
+          <div class="card benefit-card animate-on-scroll stagger-3">
+            <h4>For Your Future Career</h4>
+            <ul>
+              <li>Own your online presence, not just LinkedIn</li>
+              <li>Document your journey as you grow</li>
+              <li>Understand how the internet actually works</li>
+              <li>Prove to yourself you can build things</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll" style="margin-top: 3rem;">Getting Started</h3>
+        <p class="animate-on-scroll">You don't need to do this today. But consider this your homework:</p>
+
+        <div class="getting-started animate-on-scroll">
+          <div class="start-step">
+            <div class="start-step-content">
+              <h4>Write a detailed document</h4>
+              <p>Include what you want to build and why, all content and sections you need, images or references you can provide, and design preferences. The more detail you give upfront, the better your results. <em>For reference, check out <a href="https://github.com/hubeiqiao/Claude-Code-Workflow-Sharing" target="_blank" rel="noopener">my GitHub repo</a> — it contains the draft documents I used for today's session and previous workshops.</em></p>
+            </div>
+          </div>
+          <div class="start-step">
+            <div class="start-step-content">
+              <h4>Open an AI assistant</h4>
+              <p>Try <a href="https://aistudio.google.com/" target="_blank" rel="noopener">Google AI Studio</a> (free) or <a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a> and paste your description.</p>
+            </div>
+          </div>
+          <div class="start-step">
+            <div class="start-step-content">
+              <h4>Ask AI to help you plan</h4>
+              <p>Let it structure your project and ask clarifying questions.</p>
+            </div>
+          </div>
+          <div class="start-step">
+            <div class="start-step-content">
+              <h4>Start building</h4>
+              <p>One section at a time. The website you create doesn't have to be perfect. It just has to exist.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Fears Section -->
+    <section class="section section-alt" aria-labelledby="fears-heading">
+      <div class="container">
+        <h2 id="fears-heading" class="animate-on-scroll">Common Fears (And Why They're Unfounded)</h2>
+
+        <div class="faq-list animate-on-scroll">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              "But I don't know how to code"
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>You don't need to write code — but you do need to understand the fundamentals: how files are organized, how websites work, what a deployment means. Learn the workflow, not the syntax. And when you're stuck? Just ask AI. It will explain anything you don't understand.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              "What if I break something?"
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Start small. Build something tiny first — a simple webpage, a basic form. You're working on your own computer, on your own project. There's nothing to break that can't be fixed. Git tracks every change, so you can always go back. Every mistake is a learning opportunity, and AI can help you understand what went wrong.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              "Isn't this cheating?"
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Is using a calculator cheating at math? Is using a word processor cheating at writing? Tools amplify capability. Using the best available tools is smart, not cheating.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              "Won't AI take my job?"
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>AI won't take your job. <strong>Someone using AI will take your job.</strong> Be the person using AI.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              "This seems too good to be true"
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>I understand the skepticism. I was skeptical too. Then I built things. Real things. Things that work. Things that people use. The proof is in the doing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mindset Shift Section -->
+    <section class="section" aria-labelledby="mindset-heading">
+      <div class="container">
+        <h2 id="mindset-heading" class="animate-on-scroll">The Mindset Shift</h2>
+        <p class="animate-on-scroll">This is perhaps the most important section of this entire workshop.</p>
+
+        <div class="mindset-comparison">
+          <div class="card mindset-card consumer animate-on-scroll">
+            <div class="mindset-label">Old Mindset: Consumer</div>
+            <ul class="mindset-list">
+              <li>Wait for someone else to build solutions</li>
+              <li>Accept tools as they are given to you</li>
+              <li>Believe "I'm not technical enough"</li>
+              <li>Seek permission before attempting</li>
+            </ul>
+          </div>
+          <div class="card mindset-card builder animate-on-scroll">
+            <div class="mindset-label">New Mindset: Builder</div>
+            <ul class="mindset-list">
+              <li>Build solutions when you see problems</li>
+              <li>Create the exact tools you need</li>
+              <li>Believe "I can figure this out"</li>
+              <li>Ask forgiveness, not permission</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="animate-on-scroll" style="font-size: 1.25rem; text-align: center; margin-top: 2rem;"><strong>The gap between consumers and builders is closing.</strong></p>
+        <p class="animate-on-scroll" style="text-align: center;">The only thing separating you from shipping your first product is the decision to start.</p>
+      </div>
+    </section>
+
+    <!-- From Document to Deployed -->
+    <section class="section section-alt" aria-labelledby="deployment-heading">
+      <div class="container-narrow">
+        <h2 id="deployment-heading" class="animate-on-scroll" style="text-align: center;">From Document to Deployed Website</h2>
+
+        <div class="pipeline animate-on-scroll">
+          <div class="pipeline-step">📄 Document</div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">🤖 AI Builds</div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">🐙 GitHub</div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">▲ Vercel</div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">✅ Live!</div>
+        </div>
+
+        <p class="animate-on-scroll">The deployment process is simpler than you think:</p>
+        <ol class="process-checklist animate-on-scroll">
+          <li><strong>Write your content</strong> (like this document)</li>
+          <li><strong>Let AI build the website</strong></li>
+          <li><strong>Push to GitHub</strong> (a free code hosting service)</li>
+          <li><strong>Deploy with Vercel</strong> (free for personal projects)</li>
+        </ol>
+        <p class="animate-on-scroll">Within minutes, your website is live. Real URL. Real website. Accessible to anyone in the world.</p>
+
+        <div class="process-image animate-on-scroll">
+          <img src="images/22-vercel-deployments.png" alt="Vercel deployments dashboard" width="800" height="450" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Items -->
+    <section class="section" aria-labelledby="actions-heading">
+      <div class="container">
+        <h2 id="actions-heading" class="animate-on-scroll" style="text-align: center;">Action Items After This Workshop</h2>
+
+        <div class="action-grid">
+          <div class="card action-card animate-on-scroll stagger-1">
+            <div class="action-time">Today</div>
+            <p>Try building something small. Anything. A simple webpage. A document. Just start.</p>
+          </div>
+          <div class="card action-card animate-on-scroll stagger-2">
+            <div class="action-time">This Week</div>
+            <p>Write down what you want your personal website to include. Be specific about the sections and content.</p>
+          </div>
+          <div class="card action-card animate-on-scroll stagger-3">
+            <div class="action-time">This Month</div>
+            <p>Build that website. Ship it. Share it with one person.</p>
+          </div>
+          <div class="card action-card animate-on-scroll stagger-4">
+            <div class="action-time">This Year</div>
+            <p>Look back and notice how far you've come.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section section-alt" aria-labelledby="resources-heading">
+      <div class="container">
+        <div class="resources-header animate-on-scroll">
+          <h2 id="resources-heading">Resources to Continue Learning</h2>
+          <img src="images/claude_code.jpeg" alt="Claude Code" loading="lazy">
+        </div>
+
+        <h3 class="animate-on-scroll">Getting Started</h3>
+        <div class="resource-grid">
+          <div class="card resource-card animate-on-scroll stagger-1">
+            <h4>Google AI Studio</h4>
+            <p>Free AI assistant with Gemini (no credit card required)</p>
+            <a href="https://aistudio.google.com/" target="_blank" rel="noopener">aistudio.google.com →</a>
+          </div>
+          <div class="card resource-card animate-on-scroll stagger-2">
+            <h4>Claude Code</h4>
+            <p>Build software directly from your terminal</p>
+            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">claude.com/product/claude-code →</a>
+          </div>
+          <div class="card resource-card animate-on-scroll stagger-3">
+            <h4>Vercel</h4>
+            <p>Deploy websites for free in minutes</p>
+            <a href="https://vercel.com/" target="_blank" rel="noopener">vercel.com →</a>
+          </div>
+          <div class="card resource-card animate-on-scroll stagger-4">
+            <h4>GitHub</h4>
+            <p>Store and share your code</p>
+            <a href="https://github.com/" target="_blank" rel="noopener">github.com →</a>
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll" style="margin-top: 3rem;">My Workflow Documentation</h3>
+        <div class="resource-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <div class="card resource-card animate-on-scroll">
+            <h4>Joe's Guide</h4>
+            <p>My Claude Code workflow documentation</p>
+            <a href="https://cc.hubeiqiao.com" target="_blank" rel="noopener">cc.hubeiqiao.com →</a>
+          </div>
+          <div class="card resource-card animate-on-scroll">
+            <h4>@hubeiqiao</h4>
+            <p>Follow me on X/Twitter for updates</p>
+            <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener">x.com/hubeiqiao →</a>
+          </div>
+        </div>
+
+        <h3 class="animate-on-scroll" style="margin-top: 3rem;">The Community</h3>
+        <p class="animate-on-scroll">The best learning happens in communities of builders. Find people who are also shipping things. Share what you're working on.</p>
+
+        <div class="community-card card animate-on-scroll">
+          <img src="images/agi-ventures-logo.jpg" alt="AGI Ventures Canada" loading="lazy">
+          <div>
+            <h4>AGI Ventures Canada</h4>
+            <p style="margin-bottom: 0.5rem;">Ottawa's builder community for AI-powered products</p>
+            <a href="https://www.agiventures.ca/" target="_blank" rel="noopener">agiventures.ca →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Thought -->
+    <section class="final-section section-alt" aria-labelledby="final-heading">
+      <div class="container-narrow">
+        <h2 id="final-heading" class="sr-only">Final Thought</h2>
+        <p class="final-statement animate-on-scroll">The tools exist. The knowledge is accessible.<br><strong>The barriers are gone.</strong></p>
+        <p class="animate-on-scroll" style="color: var(--color-muted); margin-bottom: 2rem;">Every successful product, every successful company, every successful career started with someone deciding to make something.</p>
+        <p class="animate-on-scroll" style="font-size: 1.5rem; color: var(--color-cream);">Will you build?</p>
+
+        <div class="animate-on-scroll" style="margin-top: 4rem;">
+          <p class="final-year">January 2026</p>
+          <p style="color: var(--color-muted); margin-bottom: 1rem;">It's going to be <em>wild</em> looking back at this year.</p>
+          <p style="color: var(--color-muted); margin-bottom: 2rem;">The tools that exist today didn't exist a year ago. Imagine what December will look like.</p>
+          <p class="final-cta">It's time to build.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section class="qa-section" aria-labelledby="qa-heading">
+      <div class="container-narrow">
+        <h2 id="qa-heading" class="animate-on-scroll">Q&A</h2>
+        <div class="qa-questions animate-on-scroll">
+          <p>What questions do you have?</p>
+          <p>What do you want to build?</p>
+        </div>
+        <div class="social-links animate-on-scroll">
+          <a href="https://hubeiqiao.com" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            hubeiqiao.com
+          </a>
+          <a href="https://x.com/hubeiqiao" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @hubeiqiao
+          </a>
+          <a href="https://www.linkedin.com/in/hubeiqiao/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Created for the Sprott School of Business AI Workshop</p>
+    <p>Carleton University — January 26, 2026</p>
+    <p>By <a href="https://hubeiqiao.com" target="_blank" rel="noopener">Joe Hu</a> | <a href="../">Back to Main Site</a></p>
+  </footer>
+
+  <!-- Screen reader only utility -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    // Scroll Progress Bar
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+    });
+
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !expanded);
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+          faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add('active');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Copy code functionality
+    document.querySelectorAll('.code-copy').forEach(button => {
+      button.addEventListener('click', async () => {
+        const targetId = button.getAttribute('data-target');
+        const codeElement = document.getElementById(targetId);
+        const text = codeElement.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = 'Copied!';
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.textContent = 'Copy';
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
