@@ -31,6 +31,8 @@ Check out the workshop and the live demo result: https://cc.hubeiqiao.com/worksh
 
 @Anthropic — Canadian students are hungry to learn about Claude and how to build with AI. Let's bring more workshops north of the border!
 
+For students in Ottawa who want to engage more with the local AI community: check out @AGI Ventures Canada — great people building and shipping together.
+
 (For those on a budget starting out, I recommended Gemini's free tier to get started — but when you're ready to ship seriously, Claude Code is unmatched.)
 
 #AIWorkshop #ClaudeCode #BuildInPublic #CarletonUniversity #TechEducation #FutureOfWork #Anthropic #AIDevelopment #ItsTimeToBuild

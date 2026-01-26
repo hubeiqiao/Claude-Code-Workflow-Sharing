@@ -62,6 +62,8 @@ What will you build?
 
 .@AnthropicAI — Canadian students need more exposure to Claude and building with AI.
 
+Ottawa students: connect with @AGIVentures_ to engage more with the local AI builder community.
+
 (Though for students on free tier budgets, I did recommend Gemini to get started... sorry not sorry)
 
 But when you're ready to ship seriously? Claude Code is unmatched.
